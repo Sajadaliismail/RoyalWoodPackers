@@ -122,6 +122,21 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged
