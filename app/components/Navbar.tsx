@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className="bg-slate-200 h-12 flex flex-row items-center align-middle justify-center gap-5  ">
+    <nav className="bg-[#ffffffbb]  h-12 flex flex-row items-center align-middle justify-center gap-5  ">
       <span>
         <Image src={"/rwp.svg"} width={60} height={100} alt="logo" />
       </span>
