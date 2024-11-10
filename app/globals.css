@@ -15,8 +15,6 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -24,4 +22,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.svg-elem-dark {
+  fill: rgb(0, 0, 0);
+}
+
+.svg-elem-color {
+  fill: rgb(24, 45, 85);
 }
