@@ -6,7 +6,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { useRef } from "react";
 import { Saira } from "next/font/google";
 import Logo from "./Logo";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import SplitType from "split-type";
 
 const saira = Saira({
@@ -20,6 +20,8 @@ export default function HeroSection() {
   const container = useRef(null);
   const text = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(
     () => {
@@ -36,10 +38,31 @@ export default function HeroSection() {
         gsap.from(text.chars, {
           opacity: 0,
           x: 50,
-          duration: 0.3,
-          ease: "expo.out",
+          rotateY: 360,
+          duration: 1.5,
+          ease: "back",
           stagger: 0.05,
         });
+      }
+      if (imageRef.current) {
+        gsap.fromTo(
+          imageRef.current,
+          {
+            x: 70,
+            opacity: 0,
+          },
+          { x: 0, duration: 3, opacity: 1 }
+        );
+      }
+      if (paragraphRef.current) {
+        gsap.fromTo(
+          paragraphRef.current,
+          {
+            y: 50,
+            opacity: 0,
+          },
+          { y: 0, opacity: 1, duration: 1 }
+        );
       }
     },
     { scope: container }
@@ -49,31 +72,33 @@ export default function HeroSection() {
     <div
       className="flex md:flex-row flex-col relative "
       style={{
-        backgroundImage: "url(/intor.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
       ref={container}
     >
-      <div ref={headingRef} className="flex flex-col bg-[#c5c5c5bb]  p-2 ">
+      <div ref={headingRef} className="flex flex-col p-2 ">
         <Logo />
         <div
           id="heading"
-          className={`${saira.className} md:text-5xl text-2xl font-bold text-[#0b0f31]`}
+          className={`${saira.className} md:text-7xl text-3xl font-bold text-[#0b0f31] dark:text-white`}
         >
           ROYAL WOOD PACKERS
         </div>
         <div
           ref={text}
           id="caption"
-          className={` ${saira.className} flex md:text-3xl text-xl flex-wrap font-medium`}
+          className={` ${saira.className} flex md:text-4xl text-xl flex-wrap font-medium`}
           style={{
             clipPath: "border-box",
           }}
         >
           Manufactures of wooden pallets and boxes
         </div>
-        <p className="text-xl mt-2 font-medium ">
+        <p
+          ref={paragraphRef}
+          className="md:text-base text-sm  mt-2 font-medium  "
+        >
           We manufactures and supplies the widest range of pallets in India.
           Over the years, we have become one of the foremost wooden pallet
           manufacturers and the most trusted suppliers in the nation. With
@@ -85,9 +110,10 @@ export default function HeroSection() {
         </p>
       </div>
 
-      <div className="bg-[#c5c5c5bb] flex py-auto align-middle items-center justify-center">
+      <div className="flex py-auto align-middle items-center justify-center ">
         <Image
-          className="hover:scale-105 transition-transform duration-[500ms] "
+          ref={imageRef}
+          // className="hover:scale-105 transition-transform duration-[500ms] "
           src={"/pallets.png"}
           width={2500}
           height={500}
