@@ -63,7 +63,7 @@ const Logo = () => {
         {
           x: 2800,
           opacity: 1,
-          ease: "elastic.inOut",
+          ease: "back.out",
           duration: 0.4,
           rotate: 0,
         }
@@ -74,7 +74,7 @@ const Logo = () => {
           x: 10000,
           opacity: 0,
         },
-        { x: 0, opacity: 1, ease: "elastic.inOut", duration: 0.3 }
+        { x: 0, opacity: 1, ease: "elastic.out", duration: 0.3 }
       );
     }
   });

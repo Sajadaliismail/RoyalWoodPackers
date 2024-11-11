@@ -1,3 +1,4 @@
+import About from "./components/About";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import ProductComponent from "./components/ProductComponent";
@@ -8,6 +9,7 @@ export default function Home() {
       <main>
         <Navbar />
         <HeroSection />
+        <About />
         <div className="flex flex-row flex-wrap">
           <ProductComponent />
           <ProductComponent />

@@ -30,8 +30,16 @@ export default function HeroSection() {
         const text = new SplitType("#caption");
         gsap.fromTo(
           text.chars,
-          { x: 5, y: 10, skewX: 2, opacity: 0 },
-          { x: 0, y: 0, skewX: 0, stagger: 0.02, opacity: 100, duration: 0.25 }
+          { x: 15, y: 70, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            skewX: 0,
+            stagger: 0.04,
+            opacity: 100,
+            duration: 1.1,
+            ease: "back.out",
+          }
         );
       }
       if (headingRef.current) {
@@ -41,7 +49,7 @@ export default function HeroSection() {
           x: 50,
           rotateY: 90,
           duration: 1.5,
-          ease: "back",
+          ease: "back.out",
           stagger: 0.05,
         });
       }
@@ -70,35 +78,36 @@ export default function HeroSection() {
   );
 
   return (
-    <div
-      className="flex md:flex-row flex-col  items-center relative md:h-[100vh] px-3 "
-      style={{
-        backgroundImage: "url(/palletbg.jpeg)",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
-      ref={container}
-    >
-      <div ref={headingRef} className="flex flex-col p-2 ">
-        <Logo />
-        <div
-          id="heading"
-          className={`${saira.className} md:text-5xl text-3xl text-center md:text-start font-bold text-white`}
-        >
-          ROYAL WOOD PACKERS
-        </div>
-        <div
-          ref={text}
-          id="caption"
-          className={` ${saira.className} flex md:text-7xl text-5xl text-center md:text-start font-bold md:w-[50vw] `}
-          style={{
-            clipPath: "border-box",
-          }}
-        >
-          Quality Wood Pallet Makers in India
-        </div>
-        {/* <p
+    <section id="home">
+      <div
+        className="flex md:flex-row flex-co align-middlel  items-center relative min-h-[100vh] px-3 "
+        style={{
+          backgroundImage: "url(/palletbg.jpeg)",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+        ref={container}
+      >
+        <div ref={headingRef} className="flex flex-col p-2 ">
+          <Logo />
+          <div
+            id="heading"
+            className={`${saira.className} md:text-5xl text-4xl text-center md:text-start font-bold text-white mb-8`}
+          >
+            ROYAL WOOD PACKERS
+          </div>
+          <div
+            ref={text}
+            id="caption"
+            className={` ${saira.className} flex md:text-7xl text-5xl text-center md:text-start font-bold md:w-[50vw] `}
+            style={{
+              clipPath: "border-box",
+            }}
+          >
+            Quality Wood Pallet Makers.
+          </div>
+          {/* <p
           ref={paragraphRef}
           className="md:text-base text-sm  mt-2 font-medium text-balance "
         >
@@ -112,30 +121,30 @@ export default function HeroSection() {
           to delivering exceptional quality and ensuring customer satisfaction
           in every pallet we produce.
         </p> */}
-        <div className="flex flex-row justify-evenly">
-          <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:scale-105 duration-500 shadow-black shadow-md">
-            P roducts
-          </button>
-          <button className="bg-blue-700 text-white md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48  hover:scale-105 duration-500 shadow-black shadow-md">
-            Enquire
-          </button>
-          <Link
-            className="items-center flex align-middle hover:-translate-y-3 duration-200"
-            target="_blank"
-            href={"https://wa.me/9495785815"}
-          >
-            <Image
-              className="rounded-full"
-              src={"/whatsapp.svg"}
-              width={50}
-              height={50}
-              alt="whatsapp"
-            />
-          </Link>
+          <div className="flex flex-row justify-evenly mt-16">
+            <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:scale-105 duration-500 shadow-black shadow-md">
+              Products
+            </button>
+            <button className="bg-blue-700 text-white md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48  hover:scale-105 duration-500 shadow-black shadow-md">
+              Enquire
+            </button>
+            <Link
+              className="items-center flex align-middle hover:-translate-y-3 duration-200"
+              target="_blank"
+              href={"https://wa.me/9495785815"}
+            >
+              <Image
+                className="rounded-full"
+                src={"/whatsapp.svg"}
+                width={50}
+                height={50}
+                alt="whatsapp"
+              />
+            </Link>
+          </div>
         </div>
-      </div>
 
-      {/* <div className="flex py-auto align-middle items-center justify-center ">
+        {/* <div className="flex py-auto align-middle items-center justify-center ">
         <Image
           ref={imageRef}
           // className="hover:scale-105 transition-transform duration-[500ms] "
@@ -145,6 +154,7 @@ export default function HeroSection() {
           alt="pallets1"
         />
       </div> */}
-    </div>
+      </div>
+    </section>
   );
 }
