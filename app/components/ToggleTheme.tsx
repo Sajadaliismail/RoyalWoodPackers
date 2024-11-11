@@ -22,14 +22,14 @@ function ThemeToggle() {
   return (
     <div className="flex items-center justify-center ">
       <button
-        className={`w-16 h-8 flex items-center rounded-full p-1 cursor-pointer ${
+        className={`w-8 h-5 flex items-center rounded-full p-1 cursor-pointer ${
           theme == "dark" ? "bg-neutral-700" : "bg-gray-300"
         }`}
         onClick={toggleTheme}
       >
         <span
-          className={`bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${
-            theme == "dark" ? "translate-x-8" : ""
+          className={`bg-white w-3 h-3 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${
+            theme == "dark" ? "translate-x-3" : ""
           }`}
         ></span>
       </button>

@@ -8,6 +8,7 @@ import { Saira } from "next/font/google";
 import Logo from "./Logo";
 import Image from "next/image";
 import SplitType from "split-type";
+import Link from "next/link";
 
 const saira = Saira({
   weight: ["100", "400", "700", "900"],
@@ -29,7 +30,7 @@ export default function HeroSection() {
         const text = new SplitType("#caption");
         gsap.fromTo(
           text.chars,
-          { x: 2, y: 25, skewX: 2, opacity: 0 },
+          { x: 5, y: 10, skewX: 2, opacity: 0 },
           { x: 0, y: 0, skewX: 0, stagger: 0.02, opacity: 100, duration: 0.25 }
         );
       }
@@ -38,7 +39,7 @@ export default function HeroSection() {
         gsap.from(text.chars, {
           opacity: 0,
           x: 50,
-          rotateY: 360,
+          rotateY: 90,
           duration: 1.5,
           ease: "back",
           stagger: 0.05,
@@ -70,10 +71,12 @@ export default function HeroSection() {
 
   return (
     <div
-      className="flex md:flex-row flex-col relative md:h-[100vh] "
+      className="flex md:flex-row flex-col  items-center relative md:h-[100vh] px-3 "
       style={{
+        backgroundImage: "url(/palletbg.jpeg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
       ref={container}
     >
@@ -81,47 +84,58 @@ export default function HeroSection() {
         <Logo />
         <div
           id="heading"
-          className={`${saira.className} md:text-7xl text-3xl font-bold text-[#0b0f31] dark:text-white`}
+          className={`${saira.className} md:text-5xl text-3xl text-center md:text-start font-bold text-white`}
         >
           ROYAL WOOD PACKERS
         </div>
         <div
           ref={text}
           id="caption"
-          className={` ${saira.className} flex md:text-4xl text-xl flex-wrap font-medium`}
+          className={` ${saira.className} flex md:text-7xl text-5xl text-center md:text-start font-bold md:w-[50vw] `}
           style={{
             clipPath: "border-box",
           }}
         >
-          Manufactures of wooden pallets and boxes
+          Quality Wood Pallet Makers in India
         </div>
-        <p
+        {/* <p
           ref={paragraphRef}
-          className="md:text-base text-sm  mt-2 font-medium  "
+          className="md:text-base text-sm  mt-2 font-medium text-balance "
         >
-          We manufactures and supplies the widest range of pallets in India.
-          Over the years, we have become one of the foremost wooden pallet
-          manufacturers and the most trusted suppliers in the nation. With
-          unmatched expertise in platform solutions, we assist clients in
-          selecting the best platforms tailored to their supply chain needs.
-          Committed to maintaining high-quality standards and delivering fast,
-          reliable service, we ensure your supply chain runs smoothly and
-          cost-effectively.
-        </p>
+          Founded in 2000, our company has grown to become one of India’s
+          leading manufacturers and suppliers of high-quality pallets. With over
+          two decades of experience, we specialize in providing a wide range of
+          pallets designed to meet diverse needs, from storage and export to
+          custom solutions. Throughout our journey, we have built a reputation
+          for reliability, innovation, and excellence, making us the trusted
+          choice for businesses across the nation. At our core, we are committed
+          to delivering exceptional quality and ensuring customer satisfaction
+          in every pallet we produce.
+        </p> */}
         <div className="flex flex-row justify-evenly">
-          <button className="bg-blue-700 text-white p-3 px-6 my-10 rounded-xl text-lg w-48 hover:scale-105 duration-500 shadow-black shadow-md">
-            Pallets
+          <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:scale-105 duration-500 shadow-black shadow-md">
+            P roducts
           </button>
-          <button className="bg-blue-700 text-white p-3 px-6 my-10 rounded-xl text-lg w-48  hover:scale-105 duration-500 shadow-black shadow-md">
-            Boxes
+          <button className="bg-blue-700 text-white md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48  hover:scale-105 duration-500 shadow-black shadow-md">
+            Enquire
           </button>
-          <button className="bg-blue-700 text-white p-3 px-6 my-10 rounded-xl text-lg w-48  hover:scale-105 duration-500 shadow-black shadow-md">
-            Plywood
-          </button>
+          <Link
+            className="items-center flex align-middle hover:-translate-y-3 duration-200"
+            target="_blank"
+            href={"https://wa.me/9495785815"}
+          >
+            <Image
+              className="rounded-full"
+              src={"/whatsapp.svg"}
+              width={50}
+              height={50}
+              alt="whatsapp"
+            />
+          </Link>
         </div>
       </div>
 
-      <div className="flex py-auto align-middle items-center justify-center ">
+      {/* <div className="flex py-auto align-middle items-center justify-center ">
         <Image
           ref={imageRef}
           // className="hover:scale-105 transition-transform duration-[500ms] "
@@ -130,7 +144,7 @@ export default function HeroSection() {
           height={500}
           alt="pallets1"
         />
-      </div>
+      </div> */}
     </div>
   );
 }
