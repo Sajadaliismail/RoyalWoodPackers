@@ -20,12 +20,20 @@ function ThemeToggle() {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-2 rounded"
-    >
-      {theme}
-    </button>
+    <div className="flex items-center justify-center ">
+      <button
+        className={`w-16 h-8 flex items-center rounded-full p-1 cursor-pointer ${
+          theme == "dark" ? "bg-neutral-700" : "bg-gray-300"
+        }`}
+        onClick={toggleTheme}
+      >
+        <span
+          className={`bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${
+            theme == "dark" ? "translate-x-8" : ""
+          }`}
+        ></span>
+      </button>
+    </div>
   );
 }
 

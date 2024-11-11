@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --light: #d8dbe0;
+  --dark: #28292c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +25,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Style individual characters */
+#heading .char {
+  text-shadow: 3px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+#caption .char {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }

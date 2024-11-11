@@ -70,7 +70,7 @@ export default function HeroSection() {
 
   return (
     <div
-      className="flex md:flex-row flex-col relative "
+      className="flex md:flex-row flex-col relative md:h-[100vh] "
       style={{
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -108,6 +108,17 @@ export default function HeroSection() {
           reliable service, we ensure your supply chain runs smoothly and
           cost-effectively.
         </p>
+        <div className="flex flex-row justify-evenly">
+          <button className="bg-blue-700 text-white p-3 px-6 my-10 rounded-xl text-lg w-48 hover:scale-105 duration-500 shadow-black shadow-md">
+            Pallets
+          </button>
+          <button className="bg-blue-700 text-white p-3 px-6 my-10 rounded-xl text-lg w-48  hover:scale-105 duration-500 shadow-black shadow-md">
+            Boxes
+          </button>
+          <button className="bg-blue-700 text-white p-3 px-6 my-10 rounded-xl text-lg w-48  hover:scale-105 duration-500 shadow-black shadow-md">
+            Plywood
+          </button>
+        </div>
       </div>
 
       <div className="flex py-auto align-middle items-center justify-center ">
