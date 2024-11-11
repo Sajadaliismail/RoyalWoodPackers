@@ -15,15 +15,15 @@ const Logo = () => {
           opacity: 0,
         },
         { x: 0, opacity: 1, duration: 3 }
-      ),
-        tl.fromTo(
-          svgRef.current?.querySelector(".svg1"),
-          {
-            x: 7000,
-            opacity: 0,
-          },
-          { x: 0, opacity: 1, duration: 0.3, ease: "elastic.inOut" }
-        );
+      );
+      tl.fromTo(
+        svgRef.current?.querySelector(".svg1"),
+        {
+          x: 7000,
+          opacity: 0,
+        },
+        { x: 0, opacity: 1, duration: 0.3, ease: "elastic.inOut" }
+      );
       tl.fromTo(
         svgRef.current?.querySelector(".svg5"),
         {

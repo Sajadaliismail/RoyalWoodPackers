@@ -6,7 +6,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { useRef } from "react";
 import { Saira } from "next/font/google";
 import Logo from "./Logo";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import SplitType from "split-type";
 
 const saira = Saira({
