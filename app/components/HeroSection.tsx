@@ -22,7 +22,6 @@ export default function HeroSection() {
   const text = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const paragraphRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(
     () => {
@@ -63,16 +62,6 @@ export default function HeroSection() {
           { x: 0, duration: 3, opacity: 1 }
         );
       }
-      if (paragraphRef.current) {
-        gsap.fromTo(
-          paragraphRef.current,
-          {
-            y: 50,
-            opacity: 0,
-          },
-          { y: 0, opacity: 1, duration: 1 }
-        );
-      }
     },
     { scope: container }
   );
@@ -107,29 +96,16 @@ export default function HeroSection() {
           >
             Quality Wood Pallet Makers.
           </div>
-          {/* <p
-          ref={paragraphRef}
-          className="md:text-base text-sm  mt-2 font-medium text-balance "
-        >
-          Founded in 2000, our company has grown to become one of India’s
-          leading manufacturers and suppliers of high-quality pallets. With over
-          two decades of experience, we specialize in providing a wide range of
-          pallets designed to meet diverse needs, from storage and export to
-          custom solutions. Throughout our journey, we have built a reputation
-          for reliability, innovation, and excellence, making us the trusted
-          choice for businesses across the nation. At our core, we are committed
-          to delivering exceptional quality and ensuring customer satisfaction
-          in every pallet we produce.
-        </p> */}
+
           <div className="flex flex-row justify-evenly mt-16">
-            <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:scale-105 duration-500 shadow-black shadow-md">
+            <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
               Products
             </button>
-            <button className="bg-blue-700 text-white md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48  hover:scale-105 duration-500 shadow-black shadow-md">
+            <button className="bg-blue-700 text-white md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48  hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
               Enquire
             </button>
             <Link
-              className="items-center flex align-middle hover:-translate-y-3 duration-200"
+              className="items-center flex align-middle hover:animate-scale-bounce-1_1"
               target="_blank"
               href={"https://wa.me/9495785815"}
             >
@@ -143,17 +119,6 @@ export default function HeroSection() {
             </Link>
           </div>
         </div>
-
-        {/* <div className="flex py-auto align-middle items-center justify-center ">
-        <Image
-          ref={imageRef}
-          // className="hover:scale-105 transition-transform duration-[500ms] "
-          src={"/pallets.png"}
-          width={2500}
-          height={500}
-          alt="pallets1"
-        />
-      </div> */}
       </div>
     </section>
   );

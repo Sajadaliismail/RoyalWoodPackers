@@ -13,6 +13,25 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        scaleBounce1_02: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.02)" },
+        },
+        scaleBounce1_05: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.05)" },
+        },
+        scaleBounce1_1: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+        },
+      },
+      animation: {
+        "scale-bounce-1_02": "scaleBounce1_02 0.8s ease-in-out infinite",
+        "scale-bounce-1_05": "scaleBounce1_05 0.8s ease-in-out infinite",
+        "scale-bounce-1_1": "scaleBounce1_1 0.8s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

@@ -1,7 +1,7 @@
 import About from "./components/About";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-import ProductComponent from "./components/ProductComponent";
+import Products from "./components/Products";
 
 export default function Home() {
   return (
@@ -10,12 +10,7 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <About />
-        <div className="flex flex-row flex-wrap">
-          <ProductComponent />
-          <ProductComponent />
-          <ProductComponent />
-          <ProductComponent />
-        </div>
+        <Products />
       </main>
     </div>
   );
