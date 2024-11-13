@@ -10,13 +10,18 @@ interface ProductProps {
 const ProductCard: React.FC<ProductProps> = ({
   name,
   imageUrl,
-  // description,
+  description = "",
   // url,
 }) => {
   return (
-    <div className="flex flex-col items-center min-w-[30vw]">
-      <div>{name}</div>
-      <Image src={imageUrl} width={300} height={300} alt="pallet" />
+    <div className="flex flex-col items-center md:min-w-[30vw] w-[90vw] mx-auto h-96 justify-around bg-[#17171770] rounded-2xl p-2">
+      <div className="h-60 items-center flex">
+        <Image src={imageUrl} width={250} height={250} alt="pallet" />
+      </div>
+      <div className="md:h-32 px-4 font-sans ">
+        <h1 className="text-2xl font-semibold  text-center ">{name}</h1>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };
