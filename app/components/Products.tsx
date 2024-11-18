@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import ProductCard from "./ProductCard";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -11,7 +11,7 @@ export default function Products() {
   const headerRef = useRef<HTMLHeadingElement>(null);
   const firstDivRef = useRef<HTMLDivElement>(null);
   const secondDivRef = useRef<HTMLDivElement>(null);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const container = secondDivRef.current;
     if (!container) return;
@@ -64,7 +64,7 @@ export default function Products() {
       scrollState.autoScroll = true;
     };
 
-    let handleWheelSecond = (e: WheelEvent) => {
+    const handleWheelSecond = (e: WheelEvent) => {
       if (e.deltaY !== 0) {
         scrollState.autoScroll = false;
         setTimeout(() => (scrollState.autoScroll = true), 1000);
@@ -82,7 +82,7 @@ export default function Products() {
       container.removeEventListener("wheel", handleWheelSecond);
     };
   }, []);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const container = firstDivRef.current;
     if (!container) return;
