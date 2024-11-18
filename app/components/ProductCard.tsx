@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductProps> = ({
   // url,
 }) => {
   return (
-    <div className="flex flex-col items-center md:min-w-[30vw] w-[90vw] mx-auto h-96 justify-around bg-[#17171770] rounded-2xl p-2">
+    <div className="flex flex-col items-center md:min-w-[30vw] min-w-[95vw] mx-auto h-96 justify-around bg-[#17171770] rounded-2xl p-2 cursor-pointer">
       <div className="h-60 items-center flex">
         <Image src={imageUrl} width={250} height={250} alt="pallet" />
       </div>
