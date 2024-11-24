@@ -59,12 +59,12 @@ export const Navbar = () => {
           <Image src={"/rwp.svg"} width={80} height={100} alt="logo" />
         </span>
         <span>
-          <Link className="" href={"#home"}>
+          <Link className="" href={"/"}>
             Home
           </Link>
         </span>
         <span>
-          <Link href={"#about"}>About</Link>
+          <Link href={"/about"}>About</Link>
         </span>
         <span>
           <Link href={"#"}>Products</Link>

@@ -40,8 +40,11 @@ export default function About() {
 
   return (
     <section id={"about"} className="min-h-[100vh]">
-      <div className="flex flex-col justify-around gap-16 py-3 md:py-6 px-5">
-        <div className="flex md:flex-row flex-col justify-center my-2">
+      <div className="flex flex-col justify-center  py-3 md:pt-24 px-5">
+        <h3 className="text-center text-6xl underline underline-offset-8">
+          About Us
+        </h3>
+        <div className="flex md:flex-row flex-col justify-center mt-2 mb-8">
           <Image
             ref={ImageRef}
             className=" md:min-w-[35vw]"
@@ -50,7 +53,7 @@ export default function About() {
             height={500}
             src={"/aboutus.jpeg"}
           />
-          <div className="flex flex-col items-start align-middle justify-center ">
+          <div className="flex flex-col items-start align-middle justify-center  ">
             <h3 className="text-3xl mt-5 mb-2 uppercase">
               A Tradition of Quality
             </h3>

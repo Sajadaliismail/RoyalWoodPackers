@@ -188,7 +188,7 @@ export default function Products() {
           ref={headerRef}
           className="text-center text-6xl my-8 font-semibold "
         >
-          Our Products
+          Explore Our Products
         </h1>
       </div>
       <div
@@ -249,17 +249,17 @@ export default function Products() {
         />
         <ProductCard
           name="Plywood"
-          imageUrl="/pallet.jpg"
+          imageUrl="/Plywood.png"
           description="Painted pallets offer enhanced protection against moisture, pests, and weathering while providing a more polished and visually appealing finish."
         />
         <ProductCard
           name="Veneer Sheets"
-          imageUrl="/palletImg1.png"
+          imageUrl="/veneer.jpg"
           description="Our pinewood pallets offer lightweight construction, no risk of staining due to the absence of juices or glues, and excel in safe, efficient, and cost-effective transportation."
         />
         <ProductCard
           name="Rented Pallets"
-          imageUrl="/palletImg1.png"
+          imageUrl="/rented.jpg"
           description="Our pinewood pallets offer lightweight construction, no risk of staining due to the absence of juices or glues, and excel in safe, efficient, and cost-effective transportation."
         />
       </div>
