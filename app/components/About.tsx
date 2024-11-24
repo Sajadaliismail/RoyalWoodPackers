@@ -40,7 +40,7 @@ export default function About() {
 
   return (
     <section id={"about"} className="min-h-[100vh]">
-      <div className="flex flex-col justify-center  py-3 md:pt-24 px-5">
+      <div className="flex flex-col justify-center  py-3  px-5">
         <h3 className="text-center text-6xl underline underline-offset-8">
           About Us
         </h3>

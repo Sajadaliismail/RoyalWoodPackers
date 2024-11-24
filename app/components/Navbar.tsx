@@ -39,7 +39,7 @@ export const Navbar = () => {
         <Image
           className="z-50 "
           onClick={toggleMenu}
-          src={"/menupallet.svg"}
+          src={"/menuus.svg"}
           width={30}
           height={5}
           alt="logo"
@@ -52,9 +52,9 @@ export const Navbar = () => {
         className=" hidden sm:flex py-2 rounded-xl px-6   text-sm md:text-lg md:h-16  text-center  flex-row items-center align-middle justify-around md:gap-5 gap-3 "
       >
         <span
-          style={{
-            display: lastScrollY.current > 5 ? "block " : "none",
-          }}
+          className={`${
+            lastScrollY.current > 500 ? " inline-block" : "hidden"
+          } transition-all duration-300`}
         >
           <Image src={"/rwp.svg"} width={80} height={100} alt="logo" />
         </span>
@@ -77,30 +77,33 @@ export const Navbar = () => {
         </span>
       </div>
 
-      {isOpen && (
-        <div className=" flex py-2 bg-[#292929e3] absolute w-[100vw] top-0 text-xl md:text-lg md:h-16   text-center  flex-col items-center align-middle justify-around md:gap-5 gap-3 ">
-          <span className=" px-2 rounded-xl" style={{}}>
-            <Image src={"/rwp.svg"} width={80} height={100} alt="logo" />
-          </span>
-          <span>
-            <Link className="" href={"#home"}>
-              Home
-            </Link>
-          </span>
-          <span>
-            <Link href={"#about"}>About</Link>
-          </span>
-          <span>
-            <Link href={"#"}>Products</Link>
-          </span>
-          <span>
-            <Link href={"#"}>Gallery</Link>
-          </span>
-          <span>
-            <Link href={"#"}>Contact</Link>
-          </span>
-        </div>
-      )}
+      <div
+        onClick={toggleMenu}
+        className={`${
+          isOpen ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-32 "
+        } flex py-2 bg-[#292929e3] absolute w-[100vw] top-0 text-xl md:text-lg md:h-16   text-center  flex-col items-center align-middle justify-around md:gap-5 gap-3 transition-all duration-500`}
+      >
+        <span className=" px-2 rounded-xl" style={{}}>
+          <Image src={"/rwp.svg"} width={80} height={100} alt="logo" />
+        </span>
+        <span>
+          <Link className="" href={"/"}>
+            Home
+          </Link>
+        </span>
+        <span>
+          <Link href={"/about"}>About</Link>
+        </span>
+        <span>
+          <Link href={"#"}>Products</Link>
+        </span>
+        <span>
+          <Link href={"#"}>Gallery</Link>
+        </span>
+        <span>
+          <Link href={"#"}>Contact</Link>
+        </span>
+      </div>
     </nav>
   );
 };

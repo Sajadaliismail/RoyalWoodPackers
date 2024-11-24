@@ -193,7 +193,7 @@ export default function Products() {
       </div>
       <div
         ref={firstDivRef}
-        className="flex flex-row  md:h-full  overflow-scroll gap-9 px-3 md:px-6"
+        className="flex flex-row  sm:h-full  overflow-x-scroll gap-9 px-3 md:px-6"
         style={{ scrollbarWidth: "none" }}
       >
         <ProductCard
@@ -229,7 +229,7 @@ export default function Products() {
       </div>
       <div
         ref={secondDivRef}
-        className="flex flex-row-reverse  md:h-full h-[100vh] my-9 overflow-x-scroll gap-9 px-3 md:px-6"
+        className="flex flex-row-reverse  sm:h-full my-9 overflow-x-scroll gap-9 px-3 md:px-6"
         style={{ scrollbarWidth: "none" }}
       >
         <ProductCard

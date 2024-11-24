@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@types/leaflet": "^1.9.14",
     "gsap": "^3.12.5",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.460.0",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
+    "react-leaflet": "^4.2.1",
     "split-type": "^0.3.4"
   },
   "devDependencies": {

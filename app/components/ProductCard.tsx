@@ -18,8 +18,8 @@ const ProductCard: React.FC<ProductProps> = ({
       <div className="h-60 items-center flex">
         <Image src={imageUrl} width={250} height={250} alt="pallet" />
       </div>
-      <div className="md:h-32 px-4 font-sans ">
-        <h1 className="text-2xl font-semibold  text-center ">{name}</h1>
+      <div className="sm:h-32 px-4 font-sans overflow-clip ">
+        <h1 className="text-2xl font-semibold  text-center  ">{name}</h1>
         <p>{description}</p>
       </div>
     </div>
