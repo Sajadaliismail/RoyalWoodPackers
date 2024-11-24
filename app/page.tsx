@@ -1,3 +1,5 @@
+"use client";
+
 import HeroSection from "./components/HeroSection";
 import Products from "./components/Products";
 import { Didact_Gothic } from "next/font/google";

@@ -13,19 +13,23 @@ export const Navbar = () => {
   };
   const handleScroll = () => {
     setIsopen(false);
-    if (window.scrollY > lastScrollY.current) {
-      setTop(-100);
-    } else {
-      setTop(0);
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY.current) {
+        setTop(-100);
+      } else {
+        setTop(0);
+      }
+      lastScrollY.current = window.scrollY;
     }
-    lastScrollY.current = window.scrollY;
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, [top]);
   return (
     <nav
