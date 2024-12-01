@@ -26,8 +26,14 @@ const config: Config = {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.1)" },
         },
+        "gradient-move": {
+          "0%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+          "100%": { "background-position": "0% 50%" },
+        },
       },
       animation: {
+        gradient: "gradient-move 3s ease infinite",
         "scale-bounce-1_02": "scaleBounce1_02 0.8s ease-in-out infinite",
         "scale-bounce-1_05": "scaleBounce1_05 0.8s ease-in-out infinite",
         "scale-bounce-1_1": "scaleBounce1_1 0.8s ease-in-out infinite",

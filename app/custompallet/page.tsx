@@ -1,214 +1,52 @@
 "use client";
-import { useState } from "react";
-import Input from "./input";
 
-interface palletFormValue {
-  length: number | string;
-  height: number | string;
-  width: number | string;
-  stringerLength: number | string;
-  stringerWidth: number | string;
-  stringerHeight: number | string;
-  stringerBoardLength: number | string;
-  stringerBoardWidth: number | string;
-  stringerBoardHeight: number | string;
-  stringerBoardNumber: number | string;
-  topBoardPlanks: number | string;
-  bottomBoardPlanks: number | string;
-  stringerNumber: number | string;
-}
+import Wizard from "./PalletWizard";
 
-interface palletFormError {
-  length: string;
-  height: string;
-  width: string;
-  stringerLength: string;
-  stringerWidth: string;
-  stringerHeight: string;
-  stringerBoardLength: string;
-  stringerBoardWidth: string;
-  stringerBoardHeight: string;
-  topBoardPlanks: string;
-  bottomBoardPlanks: string;
-  stringerBoardNumber: string;
-  stringerNumber: string;
-}
-
-const defaultPalletFormValue: palletFormValue = {
-  length: "",
-  height: "",
-  width: "",
-  stringerLength: "",
-  stringerWidth: "",
-  stringerHeight: "",
-  stringerBoardLength: "",
-  stringerBoardWidth: "",
-  stringerBoardHeight: "",
-  topBoardPlanks: "",
-  bottomBoardPlanks: "",
-  stringerBoardNumber: "",
-  stringerNumber: "",
-};
-
-const defaultPalletFormError: palletFormError = {
-  length: "",
-  height: "",
-  width: "",
-  stringerLength: "",
-  stringerWidth: "",
-  stringerHeight: "",
-  stringerBoardLength: "",
-  stringerBoardWidth: "",
-  stringerBoardHeight: "",
-  topBoardPlanks: "",
-  bottomBoardPlanks: "",
-  stringerBoardNumber: "",
-  stringerNumber: "",
-};
-
+// interface childrenProps {
+//   title: string;
+//   component: React.FC;
+// }
 export default function GetRates() {
-  const [palletFormValue, setPalletFormValue] = useState<palletFormValue>(
-    defaultPalletFormValue
-  );
-  const [palletFormError, setPalletFormError] = useState<palletFormError>(
-    defaultPalletFormError
-  );
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-
-    setPalletFormValue((prev) => {
-      return { ...prev, [name]: value };
-    });
-
-    setPalletFormError(defaultPalletFormError);
-  };
-
   return (
-    <div className="min-h-[100vh]">
-      <div className="flex flex-row justify-center gap-3">
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-row justify-center gap-3">
-            <Input
-              error={palletFormError.length}
-              type={"number"}
-              handleChange={handleChange}
-              name={"length"}
-              value={palletFormValue?.length}
-              placeHolder="Length"
-            />
-            <Input
-              error={palletFormError.width}
-              type={"number"}
-              handleChange={handleChange}
-              name={"width"}
-              value={palletFormValue?.width}
-              placeHolder="Width"
-            />
-            <Input
-              error={palletFormError.height}
-              type={"number"}
-              handleChange={handleChange}
-              name={"height"}
-              value={palletFormValue?.height}
-              placeHolder="Height"
-            />
+    <div className="min-h-[100vh] flex  justify-center">
+      <div className="flex sm:flex-row flex-col items-center justify-around w-full">
+        {/* Custom Pallet */}
+        <div
+          className="w-80 h-80 hover:scale-95 transition-transform duration-1000 flex items-end justify-center  bg-contain bg-no-repeat bg-center relative rounded-lg"
+          style={{ backgroundImage: "url('/HardWood.png')" }}
+        >
+          <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient ">
+            <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
+              Custom Pallet
+            </button>
           </div>
-          <h1>Stringer Boards</h1>
-          <div className="flex flex-row justify-center gap-3">
-            <Input
-              error={palletFormError.stringerBoardLength}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerBoardLength"}
-              value={palletFormValue?.stringerBoardLength}
-              placeHolder="Board length"
-            />
-            <Input
-              error={palletFormError.stringerBoardWidth}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerBoardWidth"}
-              value={palletFormValue?.stringerBoardWidth}
-              placeHolder="Board Width"
-            />
-            <Input
-              error={palletFormError.stringerBoardHeight}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerBoardHeight"}
-              value={palletFormValue?.stringerBoardHeight}
-              placeHolder="Board Thickness"
-            />
-            <Input
-              error={palletFormError.stringerBoardNumber}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerBoardNumber"}
-              value={palletFormValue?.stringerBoardNumber}
-              placeHolder="Numbers"
-            />
-          </div>
-          <h1>Stringer </h1>
-          <div className="flex flex-row justify-center gap-3">
-            <Input
-              error={palletFormError.stringerLength}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerLength"}
-              value={palletFormValue?.stringerLength}
-              placeHolder="Stringer length"
-            />
-            <Input
-              error={palletFormError.stringerWidth}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerWidth"}
-              value={palletFormValue?.stringerWidth}
-              placeHolder="Stringer Width"
-            />
-            <Input
-              error={palletFormError.stringerHeight}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerHeight"}
-              value={palletFormValue?.stringerHeight}
-              placeHolder="Stringer Thickness"
-            />
-            <Input
-              error={palletFormError.stringerNumber}
-              type={"number"}
-              handleChange={handleChange}
-              name={"stringerNumber"}
-              value={palletFormValue?.stringerNumber}
-              placeHolder="Numbers"
-            />
-          </div>
-          <h1>Top Planks</h1>
+        </div>
 
-          <div className="flex flex-row justify-center gap-3">
-            <input placeholder="Length" />
-            <input placeholder="Width" />
-            <input placeholder="Height" />
-            <input pattern="Numbers" />
+        {/* Custom Box */}
+        <div
+          className="w-80 h-80 hover:scale-95 transition-transform duration-1000  flex items-end justify-center bg-contain bg-no-repeat bg-center relative rounded-lg"
+          style={{ backgroundImage: "url('/box.png')" }}
+        >
+          <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient">
+            <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
+              Custom Box
+            </button>
           </div>
-          <h1>Bottom Planks</h1>
+        </div>
 
-          <div className="flex flex-row justify-center gap-3">
-            <input placeholder="Length" />
-            <input placeholder="Width" />
-            <input placeholder="Height" />
-            <input pattern="Numbers" />
-          </div>
-          <h1>Blocks</h1>
-
-          <div className="flex flex-row justify-center gap-3">
-            <input placeholder="Length" />
-            <input placeholder="Width" />
-            <input placeholder="Height" />
-            <input pattern="Numbers" />
+        {/* Custom Crate */}
+        <div
+          className="w-80 h-80 hover:scale-95 transition-transform duration-1000  flex items-end justify-center  bg-contain bg-no-repeat bg-center relative rounded-lg"
+          style={{ backgroundImage: "url('/crate.png')" }}
+        >
+          <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient">
+            <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
+              Custom Crate
+            </button>
           </div>
         </div>
       </div>
+      <Wizard />
     </div>
   );
 }

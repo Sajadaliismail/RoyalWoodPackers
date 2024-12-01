@@ -5,6 +5,7 @@ interface InputProps {
   name: string;
   type: "number" | "text";
   error: string;
+  label?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,9 +15,11 @@ const Input: React.FC<InputProps> = ({
   name,
   type = "text",
   error,
+  label,
 }) => {
   return (
-    <label>
+    <label className="flex flex-col">
+      {label}
       <input
         id={name}
         placeholder={placeHolder}
@@ -24,7 +27,7 @@ const Input: React.FC<InputProps> = ({
         value={value}
         name={name}
         type={type}
-        className={`h-10 rounded-md bg-slate-800 border-2 outline-none px-2 font-bold  ${
+        className={`h-10 rounded-md bg-slate-800 border-2 outline-none px-2 font-bold placeholder:font-thin placeholder:text-sm ${
           error ? "border-red-700" : " border-slate-600"
         }`}
       />

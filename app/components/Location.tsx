@@ -1,4 +1,4 @@
-"use client";
+// LocationMap.js
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -17,7 +17,7 @@ const DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-export function LocationMap() {
+const LocationMap = () => {
   return (
     <div className="h-[200px] w-full rounded-lg overflow-hidden">
       <MapContainer
@@ -51,4 +51,6 @@ export function LocationMap() {
       </MapContainer>
     </div>
   );
-}
+};
+
+export default LocationMap;

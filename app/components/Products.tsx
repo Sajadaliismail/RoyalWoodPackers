@@ -60,7 +60,7 @@ export default function Products() {
     };
 
     const handleMouseLeaveSecond = () => {
-      scrollState.speed = 1;
+      scrollState.speed = 0.5;
       scrollState.autoScroll = true;
     };
 
