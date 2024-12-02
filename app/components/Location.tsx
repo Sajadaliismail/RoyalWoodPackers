@@ -1,55 +1,40 @@
-// LocationMap.js
+"use client";
+import React, { useState } from "react";
+import { Map, Marker, Overlay, ZoomControl } from "pigeon-maps";
+import Image from "next/image";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
-const DefaultIcon = L.icon({
-  iconUrl: markerIcon.src,
-  shadowUrl: markerShadow.src,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-const LocationMap = () => {
+const LocationMap: React.FC = () => {
+  const [center, setCenter] = useState<[number, number]>([
+    10.1105609, 76.4430823,
+  ]);
+  const [zoom, setZoom] = useState(11);
   return (
-    <div className="h-[200px] w-full rounded-lg overflow-hidden">
-      <MapContainer
-        center={[10.1105609, 76.4430823]}
-        zoom={50}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
-        />
-        <Marker
-          position={[10.1105609, 76.4430823]}
-          eventHandlers={{
-            click: () => {
-              window.open(
-                "https://www.google.com/maps/dir/?api=1&destination=Royal+Wood+Packers,+Mudickal,+Cheruvelikkunnu,+Perumbavoor,+Kerala+683547",
-                "_blank"
-              );
-            },
-          }}
-        >
-          <Popup>
-            Royal Wood Packers
-            <br />
-            Mudickal, Cheruvelikkunnu
-            <br />
-            Perumbavoor, Kerala 683547
-          </Popup>
-        </Marker>
-      </MapContainer>
-    </div>
+    <Map
+      height={300}
+      center={center}
+      defaultCenter={[10.1105609, 76.4430823]}
+      onBoundsChanged={({ center, zoom }) => {
+        setCenter(center);
+        setZoom(zoom);
+      }}
+      zoom={zoom}
+      defaultZoom={12}
+    >
+      <ZoomControl />
+      <Overlay anchor={[10.1105609, 76.4430823]} offset={[0, 0]}>
+        <Image src="/rwp.png" width={80} height={80} alt="" />
+      </Overlay>
+      <Marker
+        onClick={() => {
+          window.open(
+            "https://www.google.com/maps/dir/?api=1&destination=Royal+Wood+Packers,+Mudickal,+Cheruvelikkunnu,+Perumbavoor,+Kerala+683547",
+            "_blank"
+          );
+        }}
+        width={50}
+        anchor={[10.1105609, 76.4430823]}
+      />
+    </Map>
   );
 };
 

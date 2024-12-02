@@ -8,8 +8,8 @@ import {
   PhoneOutgoing,
   Instagram,
 } from "lucide-react";
-// import dynamic from "next/dynamic";
-// const LocationMap = dynamic(() => import("./Location"), { ssr: false });
+import dynamic from "next/dynamic";
+const LocationMap = dynamic(() => import("./Location"), { ssr: false });
 
 export default function Footer() {
   return (
@@ -148,7 +148,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        {/* <LocationMap /> */}
+        <LocationMap />
 
         <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
           <p>
