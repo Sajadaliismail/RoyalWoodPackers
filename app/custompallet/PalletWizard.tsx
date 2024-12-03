@@ -3,6 +3,7 @@
 import {
   defaultPalletForm,
   defaultPalletFormError,
+  heights,
 } from "@/lib/defaultValues/forms";
 import {
   palletFormError,
@@ -11,14 +12,18 @@ import {
 } from "@/lib/interfaces/forms";
 import React, { useState } from "react";
 import { PalletInfo } from "./components/PalletSize";
+import { AdditionalInfo } from "./components/AdditionalInfo";
+import { PalletRates } from "./components/PalletRates";
 
 const steps: stepsProps[] = [
-  //   { title: "Personal Information", component: PersonalInfo },
-  //   { title: "Contact Details", component: ContactDetails },
-  //   { title: "Review", component: Review },
+  { title: "Pallet Info", component: PalletInfo },
+  { title: "Additonal Info", component: AdditionalInfo },
+  { title: "Cost", component: PalletRates },
 ];
-
-export default function Wizard() {
+interface PalletWizard {
+  onBack: () => void;
+}
+export const PalletWizard: React.FC<PalletWizard> = ({ onBack }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<palletFormValue>(defaultPalletForm);
   const [formDataError, setFormDataError] = useState<palletFormError>(
@@ -27,6 +32,8 @@ export default function Wizard() {
 
   const handleNext = () => {
     setFormDataError(defaultPalletFormError);
+    if (currentStep === 0) {
+    }
     setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
   };
 
@@ -38,14 +45,34 @@ export default function Wizard() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    setFormData((prev) => {
+      if (name === "palletOpening") {
+        return {
+          ...prev,
+          [name]: Number(value),
+          height: Number(Math.max(0, Number(value) + heights[prev.capacity])),
+        };
+      }
+      if (name !== "height") {
+        return { ...prev, [name]: value };
+      }
+      return {
+        ...prev,
+        [name]: Number(value),
+        palletOpening: Number(
+          Math.max(0, Number(value) - heights[prev.capacity]).toFixed(1)
+        ),
+      };
+    });
   };
 
-  // const CurrentStepComponent = steps[currentStep].component;
+  const CurrentStepComponent = steps[currentStep].component;
 
   return (
     <div className="max-w-4xl w-full mx-auto mt-10 p-6 rounded-lg shadow-md">
       {/* Progress bar */}
+      <button onCanPlay={onBack}>back</button>
       <div className="mb-8">
         <div className="flex justify-between mb-2">
           {steps.map((step, index) => (
@@ -67,16 +94,17 @@ export default function Wizard() {
         </div>
       </div>
 
-      <PalletInfo
+      {/* <PalletInfo
         formData={formData}
         errorData={formDataError}
         handleInputChange={handleInputChange}
-      />
+      /> */}
       {/* Step content */}
-      {/* <CurrentStepComponent
+      <CurrentStepComponent
         formData={formData}
         handleInputChange={handleInputChange}
-      /> */}
+        errorData={formDataError}
+      />
 
       {/* Navigation buttons */}
       <div className="mt-8 flex justify-between">
@@ -97,4 +125,4 @@ export default function Wizard() {
       </div>
     </div>
   );
-}
+};

@@ -1,15 +1,17 @@
+import { PalletInfoProps } from "@/app/custompallet/components/AdditionalInfo";
+
 export interface stepsProps {
   title: string;
-  component: React.FC;
+  component: React.FC<PalletInfoProps>;
 }
 
 export interface palletFormError {
   length: string;
-  height: string;
+  palletOpening: string;
   width: string;
+  height: string;
   stringerLength: string;
   stringerWidth: string;
-  stringerHeight: string;
   stringerBoardLength: string;
   stringerBoardWidth: string;
   stringerBoardHeight: string;
@@ -25,7 +27,6 @@ export interface palletFormError {
   bottomPlankHeight: string;
   blockLength: string;
   blockdWidth: string;
-  blockHeight: string;
   blockNumbers: string;
   name: string;
   email: string;
@@ -35,11 +36,11 @@ export interface palletFormError {
 
 export interface palletFormValue {
   length: number;
-  height: number;
   width: number;
+  height: number;
+  palletOpening: number;
   stringerLength: number;
   stringerWidth: number;
-  stringerHeight: number;
   stringerBoardLength: number;
   stringerBoardWidth: number;
   stringerBoardHeight: number;
@@ -55,12 +56,11 @@ export interface palletFormValue {
   bottomPlankHeight: number;
   blockLength: number;
   blockdWidth: number;
-  blockHeight: number;
   blockNumbers: number;
   name: string;
   email: string;
   requirement: number;
   remarks: string;
-  capacity: 500 | 1000 | 1500 | 2000 | 3000;
+  capacity: "500" | "1000" | "1500" | "2000" | "3000";
   type: "two-way" | "four-way";
 }

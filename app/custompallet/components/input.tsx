@@ -6,6 +6,7 @@ interface InputProps {
   type: "number" | "text";
   error: string;
   label?: string;
+  remarks?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -16,9 +17,10 @@ const Input: React.FC<InputProps> = ({
   type = "text",
   error,
   label,
+  remarks,
 }) => {
   return (
-    <label className="flex flex-col">
+    <label className="flex flex-col relative">
       {label}
       <input
         id={name}
@@ -31,6 +33,7 @@ const Input: React.FC<InputProps> = ({
           error ? "border-red-700" : " border-slate-600"
         }`}
       />
+      <span className="absolute right-5 top-2 text-gray-600">{remarks}</span>
     </label>
   );
 };

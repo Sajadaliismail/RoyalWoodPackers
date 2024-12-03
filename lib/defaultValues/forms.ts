@@ -2,11 +2,11 @@ import { palletFormError, palletFormValue } from "../interfaces/forms";
 
 export const defaultPalletForm: palletFormValue = {
   length: NaN,
-  height: NaN,
+  palletOpening: NaN,
   width: NaN,
+  height: NaN,
   stringerLength: NaN,
   stringerWidth: NaN,
-  stringerHeight: NaN,
   stringerBoardLength: NaN,
   stringerBoardWidth: NaN,
   stringerBoardHeight: NaN,
@@ -22,23 +22,22 @@ export const defaultPalletForm: palletFormValue = {
   bottomPlankHeight: NaN,
   blockLength: NaN,
   blockdWidth: NaN,
-  blockHeight: NaN,
   blockNumbers: NaN,
   name: "",
   email: "",
   requirement: NaN,
   remarks: "",
-  capacity: 500,
+  capacity: "500",
   type: "four-way",
 };
 
 export const defaultPalletFormError: palletFormError = {
   length: "",
-  height: "",
+  palletOpening: "",
   width: "",
+  height: "",
   stringerLength: "",
   stringerWidth: "",
-  stringerHeight: "",
   stringerBoardLength: "",
   stringerBoardWidth: "",
   stringerBoardHeight: "",
@@ -54,10 +53,17 @@ export const defaultPalletFormError: palletFormError = {
   bottomPlankHeight: "",
   blockLength: "",
   blockdWidth: "",
-  blockHeight: "",
   blockNumbers: "",
   name: "",
   email: "",
   requirement: "",
   remarks: "",
+};
+
+export const heights = {
+  "500": 51,
+  "1000": 60.6,
+  "1500": 70,
+  "2000": 76,
+  "3000": 95.6,
 };

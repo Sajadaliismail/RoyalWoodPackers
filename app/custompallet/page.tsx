@@ -1,52 +1,37 @@
 "use client";
 
-import Wizard from "./PalletWizard";
+import { useState } from "react";
+import { ChooseButtons } from "./components/ChooseButtons";
+import { PalletWizard } from "./PalletWizard";
 
 // interface childrenProps {
 //   title: string;
 //   component: React.FC;
 // }
 export default function GetRates() {
+  const [activeWizard, setActiveWizard] = useState<"wizardOne" | null>(null); // `null` means no wizard is selected
+
+  const handleBack = () => {
+    setActiveWizard(null); // Reset to show buttons
+  };
+
+  const renderWizard = () => {
+    switch (activeWizard) {
+      case "wizardOne":
+        return <PalletWizard onBack={handleBack} />;
+      // case "wizardTwo":
+      //   return <WizardTwo onBack={handleBack} />;
+      // case "wizardThree":
+      //   return <WizardThree onBack={handleBack} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-[100vh] flex  justify-center">
-      <div className="flex sm:flex-row flex-col items-center justify-around w-full">
-        {/* Custom Pallet */}
-        <div
-          className="w-80 h-80 hover:scale-95 transition-transform duration-1000 flex items-end justify-center  bg-contain bg-no-repeat bg-center relative rounded-lg"
-          style={{ backgroundImage: "url('/HardWood.png')" }}
-        >
-          <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient ">
-            <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
-              Custom Pallet
-            </button>
-          </div>
-        </div>
-
-        {/* Custom Box */}
-        <div
-          className="w-80 h-80 hover:scale-95 transition-transform duration-1000  flex items-end justify-center bg-contain bg-no-repeat bg-center relative rounded-lg"
-          style={{ backgroundImage: "url('/box.png')" }}
-        >
-          <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient">
-            <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
-              Custom Box
-            </button>
-          </div>
-        </div>
-
-        {/* Custom Crate */}
-        <div
-          className="w-80 h-80 hover:scale-95 transition-transform duration-1000  flex items-end justify-center  bg-contain bg-no-repeat bg-center relative rounded-lg"
-          style={{ backgroundImage: "url('/crate.png')" }}
-        >
-          <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient">
-            <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
-              Custom Crate
-            </button>
-          </div>
-        </div>
-      </div>
-      <Wizard />
+      {!activeWizard && <ChooseButtons onSelect={setActiveWizard} />}
+      {renderWizard()}
     </div>
   );
 }

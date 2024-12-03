@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@types/jspdf": "^1.3.3",
     "gsap": "^3.12.5",
+    "jspdf": "^2.5.2",
     "lucide-react": "^0.460.0",
     "next": "14.2.15",
     "pigeon-maps": "^0.21.6",

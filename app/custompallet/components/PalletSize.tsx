@@ -25,7 +25,7 @@ export const PalletInfo: React.FC<PalletInfoProps> = ({
           handleChange={handleInputChange}
           error={errorData.length}
           value={formData.length}
-          placeHolder="Length"
+          placeHolder="Length in mm"
           type="number"
         />
         <Input
@@ -33,7 +33,7 @@ export const PalletInfo: React.FC<PalletInfoProps> = ({
           handleChange={handleInputChange}
           error={errorData.width}
           value={formData.width}
-          placeHolder="Width"
+          placeHolder="Width in mm"
           type="number"
         />
         <Input
@@ -41,7 +41,16 @@ export const PalletInfo: React.FC<PalletInfoProps> = ({
           handleChange={handleInputChange}
           error={errorData.height}
           value={formData.height}
-          placeHolder="Height"
+          placeHolder="Height in mm"
+          type="number"
+        />
+        <Input
+          name="palletOpening"
+          remarks="Keep a minimum of 90 mm."
+          handleChange={handleInputChange}
+          error={errorData.palletOpening}
+          value={formData.palletOpening}
+          placeHolder="Pallet opening Height in mm"
           type="number"
         />
         <RadioButton

@@ -3,7 +3,7 @@ interface SelectInputProps {
   handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string | number;
   name: string;
-  options: { value: string | number; label: string }[]; // Array of options for the select dropdown
+  options: { value: string | number; label: string }[];
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
