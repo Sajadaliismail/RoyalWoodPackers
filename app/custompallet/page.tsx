@@ -1,17 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { ChooseButtons } from "./components/ChooseButtons";
-import { PalletWizard } from "./PalletWizard";
+import { CustomOptions } from "./components/customOptions";
+import { PalletWizard } from "./components/pallets/PalletWizard";
+import { BoxWizard } from "./components/boxes/BoxWizard";
 
 // interface childrenProps {
 //   title: string;
 //   component: React.FC;
 // }
 export default function GetRates() {
-  const [activeWizard, setActiveWizard] = useState<"wizardOne" | null>(null); // `null` means no wizard is selected
+  const [activeWizard, setActiveWizard] = useState<
+    "wizardOne" | "wizardTwo" | null
+  >(null); // `null` means no wizard is selected
 
   const handleBack = () => {
+    console.log("asdas");
+
     setActiveWizard(null); // Reset to show buttons
   };
 
@@ -19,8 +24,8 @@ export default function GetRates() {
     switch (activeWizard) {
       case "wizardOne":
         return <PalletWizard onBack={handleBack} />;
-      // case "wizardTwo":
-      //   return <WizardTwo onBack={handleBack} />;
+      case "wizardTwo":
+        return <BoxWizard onBack={handleBack} />;
       // case "wizardThree":
       //   return <WizardThree onBack={handleBack} />;
       default:
@@ -30,7 +35,7 @@ export default function GetRates() {
 
   return (
     <div className="min-h-[100vh] flex  justify-center">
-      {!activeWizard && <ChooseButtons onSelect={setActiveWizard} />}
+      {!activeWizard && <CustomOptions onSelect={setActiveWizard} />}
       {renderWizard()}
     </div>
   );

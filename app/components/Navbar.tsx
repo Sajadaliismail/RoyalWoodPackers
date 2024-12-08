@@ -41,7 +41,7 @@ export const Navbar = () => {
     >
       <div className="sm:hidden mx-2 my-3 flex flex-row justify-between">
         <Image
-          className="z-50 "
+          className="z-50 cursor-context-menu"
           onClick={toggleMenu}
           src={"/menuus.svg"}
           width={30}
@@ -83,8 +83,10 @@ export const Navbar = () => {
 
       <div
         onClick={toggleMenu}
-        className={`${
-          isOpen ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-32 "
+        className={`sm:hidden ${
+          isOpen
+            ? "opacity-100 translate-y-0 "
+            : "opacity-0 h-0 -translate-y-32 "
         } flex py-2 bg-[#292929e3] absolute w-[100vw] top-0 text-xl md:text-lg md:h-16   text-center  flex-col items-center align-middle justify-around md:gap-5 gap-3 transition-all duration-500`}
       >
         <span className=" px-2 rounded-xl" style={{}}>

@@ -33,7 +33,14 @@ const Input: React.FC<InputProps> = ({
           error ? "border-red-700" : " border-slate-600"
         }`}
       />
-      <span className="absolute right-5 top-2 text-gray-600">{remarks}</span>
+
+      <span
+        className={`absolute right-5 top-2 ${
+          error ? "text-red-600" : "text-gray-600"
+        }`}
+      >
+        {error ? error : remarks}
+      </span>
     </label>
   );
 };

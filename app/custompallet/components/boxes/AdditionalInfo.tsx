@@ -1,16 +1,23 @@
-import { palletFormError, palletFormValue } from "@/lib/interfaces/forms";
-import React from "react";
-import Input from "./input";
+import {
+  BoxFormError,
+  boxFormValue,
 
-export interface PalletInfoProps {
-  formData: palletFormValue;
-  errorData: palletFormError;
+} from "@/lib/interfaces/forms";
+import React from "react";
+import Input from "../input";
+import TextArea from "../textArea";
+
+export interface boxInfoProps {
+  formData: boxFormValue;
+  errorData: BoxFormError;
   handleInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => void;
 }
 
-export const AdditionalInfo: React.FC<PalletInfoProps> = ({
+export const AdditionalInfo: React.FC<boxInfoProps> = ({
   formData,
   errorData,
   handleInputChange,
@@ -41,6 +48,14 @@ export const AdditionalInfo: React.FC<PalletInfoProps> = ({
           value={formData.email}
           placeHolder="Email address"
           type="text"
+        />
+        <TextArea
+          error={errorData.remarks}
+          value={formData.remarks}
+          name="remarks"
+          placeHolder="Additional Specifications "
+          label=""
+          handleChange={handleInputChange}
         />
       </div>
     </div>

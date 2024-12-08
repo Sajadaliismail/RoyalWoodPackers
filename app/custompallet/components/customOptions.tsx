@@ -1,7 +1,7 @@
-interface ChooseButtons {
-  onSelect: (wizard: "wizardOne") => void;
+interface CustomOptions {
+  onSelect: (wizard: "wizardOne" | "wizardTwo") => void;
 }
-export const ChooseButtons: React.FC<ChooseButtons> = ({ onSelect }) => {
+export const CustomOptions: React.FC<CustomOptions> = ({ onSelect }) => {
   return (
     <div className="flex sm:flex-row flex-col items-center justify-around w-full">
       {/* Custom Pallet */}
@@ -25,7 +25,10 @@ export const ChooseButtons: React.FC<ChooseButtons> = ({ onSelect }) => {
         style={{ backgroundImage: "url('/box.png')" }}
       >
         <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient">
-          <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
+          <button
+            onClick={() => onSelect("wizardTwo")}
+            className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md"
+          >
             Custom Box
           </button>
         </div>

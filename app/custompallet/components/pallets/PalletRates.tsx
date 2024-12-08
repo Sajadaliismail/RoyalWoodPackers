@@ -1,7 +1,7 @@
 "use client";
 import { palletFormValue } from "@/lib/interfaces/forms";
 import React, { useEffect, useState } from "react";
-import { calculatePalletRates } from "@/lib/utilities/calculator";
+import { calculatePalletRates } from "@/lib/utilities/calculatorForPallet";
 import jsPDF from "jspdf";
 interface PalletInfoProps {
   formData: palletFormValue;
@@ -21,6 +21,9 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
 
   const downloadPDF = () => {
     const doc = new jsPDF();
+
+    const watermark = "/g1690.png"; // Use a pre-transparent image
+    doc.addImage(watermark, "PNG", 35, 100, 150, 80, "", "FAST");
 
     // Initial Y position
     let y = 10;
@@ -72,7 +75,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
     doc.text(`Pallet Opening: ${palletData.palletOpening} mm`, 20, y);
     y += 10;
     doc.text(`Price: ${rate}.00`, 20, y);
-    y += 20;
+    y += 15;
 
     // Top Deck section
     doc.setFontSize(16);
@@ -92,7 +95,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
       20,
       y
     );
-    y += 20;
+    y += 15;
 
     // Bottom Deck section
     doc.setFontSize(16);
@@ -112,7 +115,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
       20,
       y
     );
-    y += 20;
+    y += 15;
 
     // Stringer and Blocks sections (conditional formatting for "four-way" type)
     if (palletData.type === "four-way") {
@@ -137,7 +140,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
         20,
         y
       );
-      y += 20;
+      y += 15;
 
       doc.setFontSize(16);
       doc.setFont("helvetica", "bold");
@@ -148,13 +151,15 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
       doc.text(`Number of Blocks: ${palletData.blockNumbers}`, 20, y);
       y += 10;
       doc.text(
-        `Block Dimensions (L x W): ${palletData.blockLength.toFixed(
+        `Block Dimensions (L x W x T): ${palletData.blockLength.toFixed(
           0
-        )} mm x ${palletData.blockdWidth.toFixed(0)} mm`,
+        )} mm x ${palletData.blockdWidth.toFixed(
+          0
+        )} mm x ${palletData.palletOpening.toFixed(0)} mm`,
         20,
         y
       );
-      y += 20;
+      y += 15;
     } else {
       doc.setFontSize(16);
       doc.setFont("helvetica", "bold");
@@ -173,13 +178,26 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
       );
       y += 10;
       doc.text(`Number of Stringers: ${palletData.stringerBoardNumber}`, 20, y);
-      y += 20;
+      y += 15;
     }
 
     // Final line for styling
     doc.setLineWidth(0.5);
     doc.line(20, y, 190, y);
-    y += 10;
+    y += 5;
+
+    doc.setFontSize(7);
+    doc.setFont("helvetica", "italic");
+
+    // Define the text
+    const disclaimerText =
+      "** The rates displayed on this web application are electronically generated and provided for informational purposes only. While we strive to ensure accuracy, there may be errors or discrepancies. If any inaccuracies are identified, our team will review and contact you promptly. For any urgent inquiries or clarifications, please reach out to us directly.";
+
+    // Split the text to fit within a specific width (e.g., 170 units)
+    const textLines = doc.splitTextToSize(disclaimerText, 170);
+
+    // Render the text with line breaks
+    doc.text(textLines, 20, y);
 
     // Save the PDF
     doc.save("pallet_details.pdf");
@@ -187,15 +205,9 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
 
   return (
     <div className="container mx-auto sm:p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+      <h1 className="text-3xl font-bold mb-6 text-center">
         Pallet Specifications
       </h1>
-      <button
-        onClick={downloadPDF}
-        className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
-      >
-        Download Pallet Details as PDF
-      </button>
 
       <div className="grid gap-10">
         <div className="bg-slate-800   hover:shadow-gray-800 shadow-2xl rounded-lg p-6 hover:scale-105 transform transition duration-500 ease-in-out">
@@ -368,6 +380,20 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
             </tbody>
           </table>
         </div>
+        <p className="text-xs">
+          ** The rates displayed on this web application are electronically
+          generated and provided for informational purposes only. While we
+          strive to ensure accuracy, there may be errors or discrepancies. If
+          any inaccuracies are identified, our team will review and contact you
+          promptly. For any urgent inquiries or clarifications, please reach out
+          to us directly.
+        </p>
+        <button
+          onClick={downloadPDF}
+          className="bg-blue-500 hover:scale-110 transition-transform duration-500 text-white p-2 w-fit mx-auto rounded-md hover:bg-blue-600"
+        >
+          Download Details
+        </button>
       </div>
     </div>
   );
