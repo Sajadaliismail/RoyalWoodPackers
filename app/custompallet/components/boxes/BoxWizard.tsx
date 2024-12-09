@@ -37,7 +37,7 @@ export const BoxWizard: React.FC<BoxWizard> = ({ onBack }) => {
     // setFormDataError(defaultPalletFormError);
     if (currentStep === 0) {
 
-      const validate = calculateBoxRates(formData)
+      // const validate = calculateBoxRates(formData)
 
       // const err = validate.error;
       // setFormDataError((prev) => {
