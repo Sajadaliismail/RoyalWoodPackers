@@ -4,7 +4,6 @@ import { useState } from "react";
 import { CustomOptions } from "./components/customOptions";
 import { PalletWizard } from "./components/pallets/PalletWizard";
 import { BoxWizard } from "./components/boxes/BoxWizard";
-import AnimatedLogo from "./components/animated";
 
 // interface childrenProps {
 //   title: string;
