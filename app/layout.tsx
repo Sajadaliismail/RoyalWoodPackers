@@ -29,6 +29,22 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/rwp.png" />
+        <meta name="description" content="Manufacturer of wooden pallets and boxes." />
+    <meta name="author" content="Royal Wood Packers" />
+    <meta name="keywords" content="Wooden pallets,Wooden Boxes,Wooden crates,Plastic Pallets,Pallets,Packing" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/essarr.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content="Royal Wood Packers" />
+    <meta property="og:description" content="Manufacturer of wooden pallets and boxes." />
+    <meta property="og:image" content="/path-to-your-image.jpg" />
+    <meta property="og:url" content="https://royalwoodpackers.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Royal Wood Packers" />
+    <meta name="twitter:description" content="A brief description of your site." />
+    <meta name="twitter:image" content="/path-to-your-image.jpg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-black text-white `}
