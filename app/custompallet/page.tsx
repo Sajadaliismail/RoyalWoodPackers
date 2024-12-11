@@ -36,7 +36,7 @@ export default function GetRates() {
 
   return (
     <div className="min-h-[100vh] flex  justify-center">
-      <AnimatedLogo/>
+      {/* <AnimatedLogo/> */}
       {!activeWizard && <CustomOptions onSelect={setActiveWizard} />}
       {renderWizard()}
     </div>

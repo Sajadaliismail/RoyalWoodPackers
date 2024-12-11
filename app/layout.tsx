@@ -33,7 +33,7 @@ export default function RootLayout({
     <meta name="author" content="Royal Wood Packers" />
     <meta name="keywords" content="Wooden pallets,Wooden Boxes,Wooden crates,Plastic Pallets,Pallets,Packing" />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" type="image/svg+xml" href="/essarr.svg" />
+    <link rel="icon" type="image/svg+xml" href="/rwp.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:title" content="Royal Wood Packers" />
