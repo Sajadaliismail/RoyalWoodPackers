@@ -17,21 +17,24 @@ export const calculateBoxRates = (formData: boxFormValue) => {
   // find the number of nettybattons
   const nettyBattonNumber = findNettyBattonNumber(formData.width);
 
-  const effectiveLength =
+  const effectiveLength = Math.floor(
     Number(formData.length) +
-    measurementData.battonThickness * 2 +
-    measurementData.crossPlankThickness * 2;
+      measurementData.battonThickness * 2 +
+      measurementData.crossPlankThickness * 2
+  );
 
-  const effectiveWidth =
+  const effectiveWidth = Math.floor(
     Number(formData.width) +
-    measurementData.battonThickness * 2 +
-    measurementData.crossPlankThickness * 2;
+      measurementData.battonThickness * 2 +
+      measurementData.crossPlankThickness * 2
+  );
 
-    const effectiveheight = measurementData.bottomPlankThickness +
+  const effectiveheight =
+    measurementData.bottomPlankThickness +
     Number(formData.height) +
     formData.stringerHeight +
     measurementData.battonThickness +
-    measurementData.crossPlankThickness
+    measurementData.crossPlankThickness;
   let totalWood = 1;
   if (formData.type === "wood") {
     const bottomBoardWood =
@@ -97,22 +100,32 @@ export const calculateBoxRates = (formData: boxFormValue) => {
         nettyBoardWood +
         sideBoardWood +
         bottomBoardWood +
-        horizonatalBattons+
+        horizonatalBattons +
         topBoardWood) /
       CBMtoCFT;
   }
 
   formData.outerlength = effectiveLength;
   formData.outerwidth = effectiveWidth;
-  formData.outerheight = effectiveheight
-  formData.baseBoardThickness = measurementData.bottomPlankThickness-6.4
-  formData.crossBoardThickness = measurementData.crossPlankThickness-6.4
-  formData.stringerWidth = measurementData.stringerWidth
-  formData.stringerNumber = stringerNumber
-  formData.stringerLength = effectiveWidth
+  formData.outerheight = Math.floor(effectiveheight);
+  formData.baseBoardThickness = measurementData.bottomPlankThickness - 6.4;
+  formData.crossBoardThickness = measurementData.crossPlankThickness - 6.4;
+  formData.stringerWidth = Math.floor(measurementData.stringerWidth - 12.2);
+  formData.stringerNumber = stringerNumber;
+  formData.stringerLength = effectiveWidth;
+  formData.baseBoardLength = effectiveLength;
+  formData.baseBoardWidth = effectiveWidth;
+  formData.sideBoardLength = effectiveLength;
+  formData.sideBoardWidth = formData.height;
+  formData.nettyBoardLength = formData.width;
+  formData.nettyBoardWidth = formData.height;
+  formData.topboardLength = effectiveLength;
+  formData.topboarddWidth = effectiveWidth;
+  formData.battonWidth = measurementData.battonWidth;
+  formData.battonThickness = Math.floor(measurementData.battonThickness - 6.4);
 
   const finalPrice = Math.ceil((totalWood * 800) / 10) * 10;
-  return {finalPrice,boxData:formData};
+  return { finalPrice, boxData: formData };
 };
 
 /**
@@ -138,7 +151,7 @@ const findMeasurements = (
         bottomPlankThickness: 22.3,
         battonThickness: 25.5,
         crossPlankThickness: 22.3,
-        stringerWidth: 51,
+        stringerWidth: 51 + 12.2,
         battonWidth: 75,
       };
       break;
@@ -147,7 +160,7 @@ const findMeasurements = (
         bottomPlankThickness: 25.5,
         battonThickness: 25.5,
         crossPlankThickness: 22.3,
-        stringerWidth: 57.2,
+        stringerWidth: 57.2 + 12.2,
         battonWidth: 75,
       };
       break;
@@ -156,7 +169,7 @@ const findMeasurements = (
         bottomPlankThickness: 28.7,
         battonThickness: 25.5,
         crossPlankThickness: 22.3,
-        stringerWidth: 63.6,
+        stringerWidth: 63.6 + 12.2,
         battonWidth: 100,
       };
       break;
@@ -165,7 +178,7 @@ const findMeasurements = (
         bottomPlankThickness: 31.7,
         battonThickness: 28.7,
         crossPlankThickness: 25.5,
-        stringerWidth: 75,
+        stringerWidth: 75 + 12.2,
         battonWidth: 100,
       };
       break;
@@ -174,7 +187,7 @@ const findMeasurements = (
         bottomPlankThickness: 38.2,
         battonThickness: 31.7,
         crossPlankThickness: 28.7,
-        stringerWidth: 88.7,
+        stringerWidth: 88.7 + 12.2,
         battonWidth: 100,
       };
       break;

@@ -35,7 +35,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
 
     // Title
     doc.setFontSize(30);
-    doc.setFont("helvetica", "bold");
+    doc.setFont("times", "bold");
     doc.text("ROYAL WOOD PACKERS", 60, y);
     y += 2;
 
@@ -379,8 +379,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
               </tr>
             </tbody>
           </table>
-        </div>
-        <p className="text-xs">
+        <p className="text-xs my-4">
           ** The rates displayed on this web application are electronically
           generated and provided for informational purposes only. While we
           strive to ensure accuracy, there may be errors or discrepancies. If
@@ -394,6 +393,7 @@ export const PalletRates: React.FC<PalletInfoProps> = ({ formData }) => {
         >
           Download Details
         </button>
+        </div>
       </div>
     </div>
   );

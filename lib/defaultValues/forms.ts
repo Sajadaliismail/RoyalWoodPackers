@@ -1,6 +1,8 @@
 import {
   BoxFormError,
   boxFormValue,
+  CrateFormError,
+  CrateFormValue,
   palletFormError,
   palletFormValue,
 } from "../interfaces/forms";
@@ -100,4 +102,57 @@ export const defaultBoxValue: boxFormValue = {
   remarks: "",
   type: "wood",
   capacity: "500",
+};
+
+
+export const defaultCrateError: CrateFormError = {
+  length: "",
+  width: "",
+  height: "",
+  name: "",
+  email: "",
+  requirement: "",
+  remarks: "",
+  gap:''
+};
+
+export const defaultCrateValue: CrateFormValue = {
+  length: NaN,
+  width: NaN,
+  height: NaN,
+  outerlength: NaN,
+  outerwidth: NaN,
+  outerheight: NaN,
+  stringerLength: NaN,
+  stringerWidth: NaN,
+  stringerHeight: 100,
+  stringerNumber: NaN,
+  baseBoardLength: NaN,
+  baseBoardPlankWidth: NaN,
+  baseBoardPlankNumber:NaN,
+  baseBoardThickness: NaN,
+  sideBoardLength: NaN,
+  sideBoardPlankWidth: NaN,
+  sideBoardPlankNumber:NaN,
+  nettyBoardLength: NaN,
+  nettyBoardPlankWidth: NaN,
+  nettyBoardPlankNumber:NaN,
+  topboardLength: NaN,
+  topboardPlankWidth: NaN,
+  topboardPlankNumber:NaN,
+  crossBoardThickness: NaN,
+  sideBattonNumber: NaN,
+  nettyBattonNumber: NaN,
+  topbattonsNumber: NaN,
+  battonThickness: NaN,
+  battonLength: NaN,
+  crossBatton: NaN,
+  crossBattonLength: NaN,
+  battonWidth: NaN,
+  name: "",
+  email: "",
+  requirement: NaN,
+  remarks: "",
+  capacity: "500",
+  gap:NaN
 };

@@ -104,7 +104,7 @@ export const PalletWizard: React.FC<PalletWizard> = ({ onBack }) => {
         >
           <MoveLeft size={35} />
         </button>
-        <p className="text-center  text-xl sm:text-3xl my-3 mb-6 font-bold underline underline-offset-8">
+        <p className="text-center  text-xl sm:text-3xl my-3 mb-6 font-bold ">
           Wooden Pallet Estimate
         </p>
       </div>

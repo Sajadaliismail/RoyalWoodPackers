@@ -1,4 +1,5 @@
 import { boxInfoProps } from "@/app/custompallet/components/boxes/AdditionalInfo";
+import { CrateInfoProps } from "@/app/custompallet/components/crates/AdditionalInfo";
 import { PalletInfoProps } from "@/app/custompallet/components/pallets/AdditionalInfo";
 
 export interface stepsProps {
@@ -9,6 +10,11 @@ export interface stepsProps {
 export interface stepsPropsBox {
   title: string;
   component: React.FC<boxInfoProps>;
+}
+
+export interface stepsPropsCrate {
+  title: string;
+  component: React.FC<CrateInfoProps>;
 }
 
 export interface palletFormError {
@@ -98,5 +104,58 @@ export interface boxFormValue {
   requirement: number;
   remarks: string;
   type: "plywood" | "wood";
+  capacity: "500" | "1000" | "1500" | "2000" | "3000";
+}
+
+
+export interface CrateFormError {
+  length: string;
+  width: string;
+  height: string;
+  gap:string;
+  name: string;
+  email: string;
+  requirement: string;
+  remarks: string;
+}
+
+export interface CrateFormValue {
+  length: number;
+  width: number;
+  height: number;
+  gap:number;
+  outerlength: number,
+  outerwidth: number,
+  outerheight: number,
+  stringerLength: number;
+  stringerWidth: number;
+  stringerHeight: number;
+  stringerNumber: number;
+  baseBoardLength: number;
+  baseBoardPlankWidth: number;
+  baseBoardPlankNumber: number;
+  baseBoardThickness: number;
+  sideBoardLength: number;
+  sideBoardPlankWidth: number;
+  sideBoardPlankNumber: number;
+  nettyBoardLength: number;
+  nettyBoardPlankWidth: number;
+  nettyBoardPlankNumber: number;
+  topboardLength: number;
+  topboardPlankWidth: number;
+  topboardPlankNumber: number;
+  crossBoardThickness: number;
+  sideBattonNumber: number;
+  nettyBattonNumber: number;
+  topbattonsNumber: number;
+  battonThickness: number;
+  battonLength: number;
+  crossBatton: number;
+  crossBattonLength: number;
+  battonWidth: number;
+  name: string;
+  email: string;
+  requirement: number;
+  remarks: string;
   capacity: "500" | "1000" | "1500" | "2000" | "3000";
 }

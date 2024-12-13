@@ -1,5 +1,5 @@
 interface CustomOptions {
-  onSelect: (wizard: "wizardOne" | "wizardTwo") => void;
+  onSelect: (wizard: "wizardOne" | "wizardTwo"|'wizardThree') => void;
 }
 export const CustomOptions: React.FC<CustomOptions> = ({ onSelect }) => {
   return (
@@ -40,7 +40,9 @@ export const CustomOptions: React.FC<CustomOptions> = ({ onSelect }) => {
         style={{ backgroundImage: "url('/crate.png')" }}
       >
         <div className="relative p-0.5 hover:scale-110 hover:translate-y-4 transition-all duration-700 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 rounded-lg bg-[length:200%_200%] animate-gradient">
-          <button className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
+          <button 
+           onClick={() => onSelect("wizardThree")}
+          className="h-10 px-4  border-  shadow-xl bg-slate-900 text-white rounded-md">
             Custom Crate
           </button>
         </div>

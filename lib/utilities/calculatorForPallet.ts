@@ -161,9 +161,9 @@ const findMeasurements = (
         stringerPlankThickness: 28.7,
         topPlankThickness: 25.5,
         stringerThickness: 57.2,
-        blockLength: 76.2 + 12.2,
-        blockWidth: 76.2 + 12.2,
-        plankWidth: 76.2 + 6.4,
+        blockLength: 90  + 12.2,
+        blockWidth: 90  + 12.2,
+        plankWidth: 90   + 6.4,
       };
       break;
     case "1500":
@@ -172,9 +172,9 @@ const findMeasurements = (
         stringerPlankThickness: 31.7,
         topPlankThickness: 28.7,
         stringerThickness: 63.6,
-        blockLength: 90 + 12.2,
-        blockWidth: 90 + 12.2,
-        plankWidth: 90 + 6.4,
+        blockLength: 100 + 12.2,
+        blockWidth: 100 + 12.2,
+        plankWidth: 100 + 6.4,
       };
       break;
     case "2000":

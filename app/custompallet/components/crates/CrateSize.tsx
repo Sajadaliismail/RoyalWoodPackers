@@ -1,16 +1,17 @@
 import {
-  BoxFormError,
-  boxFormValue,
+
+  CrateFormError,
+  CrateFormValue,
 
 } from "@/lib/interfaces/forms";
 import React from "react";
 import Input from "../input";
-import RadioButton from "../inputRadio";
 import SelectInput from "../selectInput";
 import Image from "next/image";
-interface boxInfoProps {
-  formData: boxFormValue;
-  errorData: BoxFormError;
+
+interface CrateInfoProps {
+  formData: CrateFormValue;
+  errorData: CrateFormError;
   handleInputChange: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -18,7 +19,7 @@ interface boxInfoProps {
   ) => void;
 }
 
-export const BoxSize: React.FC<boxInfoProps> = ({
+export const CrateSize: React.FC<CrateInfoProps> = ({
   formData,
   errorData,
   handleInputChange,
@@ -50,17 +51,15 @@ export const BoxSize: React.FC<boxInfoProps> = ({
           placeHolder="Height in mm"
           type="number"
         />
-
-        <RadioButton
+           <Input
+          name="gap"
           handleChange={handleInputChange}
-          label="Type"
-          name="type"
-          options={[
-            { label: "Wooden Box", value: "wood" },
-            { value: "plywood", label: "Plywood Box" },
-          ]}
-          value={formData.type}
+          error={errorData.gap}
+          value={formData.gap}
+          placeHolder="Gap Between Cross Flats in mm"
+          type="number"
         />
+
         <SelectInput
           handleChange={handleInputChange}
           label="Capacity"
@@ -77,7 +76,7 @@ export const BoxSize: React.FC<boxInfoProps> = ({
       </div>
       <div className=" py-8 px-3 mx-auto my-auto">
         <Image
-          src={formData.type === "plywood" ? "/palletImg2.png" : "/fourway.png"}
+          src="/palletImg2.png" 
           width={300}
           height={400}
           alt="pallet"

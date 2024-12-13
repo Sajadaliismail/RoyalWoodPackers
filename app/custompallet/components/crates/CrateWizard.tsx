@@ -1,59 +1,62 @@
 "use client";
 
 import {
-  defaultBoxError,
-  defaultBoxValue,
+
+  defaultCrateError,
+  defaultCrateValue,
 } from "@/lib/defaultValues/forms";
 import {
-  BoxFormError,
-  boxFormValue,
-  stepsPropsBox,
+  CrateFormError,
+  CrateFormValue,
+  stepsPropsCrate,
 } from "@/lib/interfaces/forms";
 import React, { useState } from "react";
-import { BoxSize } from "./BoxSize";
+import { CrateSize } from "./CrateSize";
 import { AdditionalInfo } from "./AdditionalInfo";
-import { BoxRates } from "./BoxRates";
+import { CrateRates } from "./CrateRates";
 
 import { Check, MoveLeft } from "lucide-react";
-import { validateBoxFirstStep, validateBoxSecondStep } from "@/lib/utilities/validationHelper";
 
-const steps: stepsPropsBox[] = [
-  { title: "Pallet Info", component: BoxSize },
+const steps: stepsPropsCrate[] = [
+  { title: "Crate Info", component: CrateSize },
   { title: "Additonal Info", component: AdditionalInfo },
-  { title: "Cost", component: BoxRates },
+  { title: "Cost", component: CrateRates },
 ];
-interface BoxWizard {
+interface CrateWizard {
   onBack: () => void;
 }
-export const BoxWizard: React.FC<BoxWizard> = ({ onBack }) => {
+export const CrateWizard: React.FC<CrateWizard> = ({ onBack }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<boxFormValue>(defaultBoxValue);
+  const [formData, setFormData] = useState<CrateFormValue>(defaultCrateValue);
   const [formDataError, setFormDataError] =
-    useState<BoxFormError>(defaultBoxError);
+    useState<CrateFormError>(defaultCrateError);
 
   const handleNext = () => {
-    setFormDataError(defaultBoxError);
+    setFormDataError(defaultCrateError);
     if (currentStep === 0) {
-    const validate = validateBoxFirstStep(formData);
-      const err = validate.error;
-      setFormDataError((prev) => {
-        return { ...prev, ...err };
-      });
-      if (!validate.isError) {
-        setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
-      }
+    // const validate = validateBoxFirstStep(formData);
+    //   const err = validate.error;
+    //   setFormDataError((prev) => {
+    //     return { ...prev, ...err };
+    //   });
+    //   if (!validate.isError) {
+    //     setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+    //   }
     }
     if (currentStep === 1) {
-      const validate = validateBoxSecondStep(formData);
-      const err = validate.error;
-      setFormDataError((prev) => {
-        return { ...prev, ...err };
-      });
-      if (!validate.isError) {
-        setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
-      }
+      // const validate = validateBoxSecondStep(formData);
+      // const err = validate.error;
+      // setFormDataError((prev) => {
+      //   return { ...prev, ...err };
+      // });
+      // if (!validate.isError) {
+      //   setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+      // }
     }
+        setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+  
   };
+
 
   const handlePrev = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 0));
@@ -84,7 +87,7 @@ export const BoxWizard: React.FC<BoxWizard> = ({ onBack }) => {
           <MoveLeft size={35} />
         </button>
         <p className="text-center text-xl sm:text-3xl my-3 mb-6 font-bold ">
-        Box Pricing Info
+        Crate Pricing Info
         </p>
       </div>
       <div className="mb-8">
