@@ -35,7 +35,7 @@ export default function RootLayout({
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/svg+xml" href="/rwp.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/manifest.json" />
     <meta property="og:title" content="Royal Wood Packers" />
     <meta property="og:description" content="Manufacturer of wooden pallets and boxes." />
     <meta property="og:image" content="/path-to-your-image.jpg" />
