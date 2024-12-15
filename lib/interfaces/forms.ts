@@ -1,6 +1,6 @@
-import { boxInfoProps } from "@/app/custompallet/components/boxes/AdditionalInfo";
-import { CrateInfoProps } from "@/app/custompallet/components/crates/AdditionalInfo";
-import { PalletInfoProps } from "@/app/custompallet/components/pallets/AdditionalInfo";
+import { boxInfoProps } from "@/app/getrates/components/boxes/AdditionalInfo";
+import { CrateInfoProps } from "@/app/getrates/components/crates/AdditionalInfo";
+import { PalletInfoProps } from "@/app/getrates/components/pallets/AdditionalInfo";
 
 export interface stepsProps {
   title: string;

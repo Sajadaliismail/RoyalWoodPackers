@@ -3,7 +3,7 @@ interface InputProps {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string | number;
   name: string;
-  type: "number" | "text";
+  type: "number" | "text" |'email';
   error: string;
   label?: string;
   remarks?: string;

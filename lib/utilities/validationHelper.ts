@@ -1,3 +1,4 @@
+import { ContactFormData } from "@/app/contact/page";
 import { boxFormValue, palletFormValue } from "../interfaces/forms";
 
 export const validatePalletFirstStep = (formData: palletFormValue) => {
@@ -94,3 +95,25 @@ export const validateBoxSecondStep = (formData: boxFormValue) => {
   }
   return { error, isError };
 };
+
+export const validateContactForm = (formData:ContactFormData)=>{
+  let isError = false;
+  const error = {
+    name: "",
+    email: "",
+    phone: "",
+    enquiryType: "",
+    message: "",}
+
+    for (const [key, value] of Object.entries(formData)) {
+      if (key === "name" || key === "email" || key === "message" || key ==='enquiryType') {
+        if (Number.isNaN(value) || !value.trim()) {
+          isError = true;
+          error[key] = "*Required";
+        }
+      }
+    }
+    return { error, isError };
+  
+
+}

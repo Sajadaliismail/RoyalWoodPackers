@@ -9,6 +9,7 @@ import Logo from "./Logo";
 import Image from "next/image";
 import SplitType from "split-type";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const saira = Saira({
   weight: ["100", "400", "700", "900"],
@@ -22,6 +23,12 @@ export default function HeroSection() {
   const text = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+
+  const router = useRouter();
+
+  const handleNavigation = () => {
+    router.push('/getrates');
+  };
 
   useGSAP(
     () => {
@@ -101,8 +108,8 @@ export default function HeroSection() {
             <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
               Products
             </button>
-            <button className="bg-blue-700 text-white md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48  hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
-              Enquire
+            <button onClick={handleNavigation} className=" md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 bg-blue-700 text-white  hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
+            Get Rates
             </button>
             <Link
               className="items-center flex align-middle hover:animate-scale-bounce-1_1"

@@ -77,7 +77,7 @@ export const Navbar = () => {
           <Link href={"#"}>Gallery</Link>
         </span>
         <span>
-          <Link href={"#"}>Contact</Link>
+          <Link href={"/contact"}>Contact</Link>
         </span>
       </div>
 
@@ -107,7 +107,7 @@ export const Navbar = () => {
           <Link href={"#"}>Gallery</Link>
         </span>
         <span>
-          <Link href={"#"}>Contact</Link>
+          <Link href={"/contact"}>Contact</Link>
         </span>
       </div>
     </nav>
