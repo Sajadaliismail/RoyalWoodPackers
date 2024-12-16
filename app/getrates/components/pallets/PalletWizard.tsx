@@ -10,7 +10,7 @@ import {
   palletFormValue,
   stepsProps,
 } from "@/lib/interfaces/forms";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { PalletInfo } from "./PalletSize";
 import { AdditionalInfo } from "./AdditionalInfo";
 import { PalletRates } from "./PalletRates";
@@ -35,6 +35,7 @@ export const PalletWizard: React.FC<PalletWizard> = ({ onBack }) => {
     defaultPalletFormError
   );
 
+ 
   const handleNext = () => {
     setFormDataError(defaultPalletFormError);
     if (currentStep === 0) {
@@ -57,7 +58,6 @@ export const PalletWizard: React.FC<PalletWizard> = ({ onBack }) => {
         setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
       }
     }
-    // setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
   };
 
   const handlePrev = () => {
@@ -70,7 +70,7 @@ export const PalletWizard: React.FC<PalletWizard> = ({ onBack }) => {
     >
   ) => {
     const { name, value } = e.target;
-
+    
     setFormData((prev) => {
       if (name === "palletOpening") {
         return {

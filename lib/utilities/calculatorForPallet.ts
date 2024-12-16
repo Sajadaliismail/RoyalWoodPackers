@@ -18,10 +18,10 @@ export const calculatePalletRates = (formData: palletFormValue) => {
   );
 
   // Find the number of stringers needed based on pallet length
-  const stringerNum = findStringerNum(formData.length);
+  const stringerNum = findStringerNum(formData.width);
 
   // Find the number of block rows needed based on pallet width
-  const blockRowNum = findBlockNum(formData.width);
+  const blockRowNum = findBlockNum(formData.length);
 
   let totalWood; // Total wood required in cubic meters
 
@@ -47,7 +47,7 @@ export const calculatePalletRates = (formData: palletFormValue) => {
   } else {
     // Block pallets with additional components
     totalWood =
-      ((formData.length *
+      ((formData.width *
         measurementData.plankWidth *
         topPlanksNum *
         measurementData.topPlankThickness) /
@@ -58,7 +58,7 @@ export const calculatePalletRates = (formData: palletFormValue) => {
           stringerNum *
           blockRowNum) /
           (1000 * 1000 * 1000) +
-        (formData.length *
+        (formData.width *
           blockRowNum *
           measurementData.plankWidth *
           measurementData.bottomPlankThickness) /
@@ -75,15 +75,15 @@ export const calculatePalletRates = (formData: palletFormValue) => {
   formData.blockNumbers = blockRowNum * stringerNum;
   formData.bottomBoardPlanks = blockRowNum;
   formData.bottomPlankHeight = measurementData.bottomPlankThickness - 6.4;
-  formData.bottomPlankLength = formData.length;
+  formData.bottomPlankLength = formData.width;
   formData.bottomPlankdWidth = measurementData.plankWidth - 6.4;
   formData.stringerBoardHeight = measurementData.stringerPlankThickness - 6.4;
-  formData.stringerBoardLength = formData.width;
+  formData.stringerBoardLength = formData.length;
   formData.stringerBoardWidth = measurementData.plankWidth - 6.4;
   formData.stringerBoardNumber = stringerNum;
-  formData.stringerLength = formData.width;
+  formData.stringerLength = formData.length;
   formData.stringerWidth = measurementData.stringerThickness - 6.4;
-  formData.topPlankLength = formData.length;
+  formData.topPlankLength = formData.width;
   formData.topPlankHeight = measurementData.topPlankThickness - 6.4;
   formData.topPlankdWidth = measurementData.plankWidth - 6.4;
   formData.topBoardPlanks = topPlanksNum;
@@ -108,7 +108,6 @@ export const maxPlanks = (
   if (maxLength <= plankWidth) return 1; // If the length is less than one plank, return 1 plank
 
   let plankNum = Math.floor(maxLength / plankWidth); // Initial estimate for number of planks
-  console.log(plankNum);
 
   let currGap = -Infinity;
 

@@ -17,41 +17,37 @@ export default function Products() {
     if (!container) return;
 
     let animationId: number;
-    let lastScrollPosition = container.scrollLeft;
     const scrollState = {
       speed: 1,
       autoScroll: true,
-      direction: 1,
+      direction: -1, // Start scrolling left
     };
 
     const scrollSecond = () => {
       if (scrollState.autoScroll) {
-        if (
-          -container.scrollLeft + 1 >=
-          container.scrollWidth - container.clientWidth
+
+        // Check if we hit the rightmost edge
+        if (container.scrollLeft === 0) {
+          scrollState.direction = -1; // Change to scroll left
+        }
+        // Check if we hit the leftmost edge
+        else if (
+          -container.scrollLeft + container.clientWidth >=
+          container.scrollWidth 
         ) {
-          scrollState.direction = 1;
-        } else if (container.scrollLeft == 0) {
-          scrollState.direction = -1;
+          scrollState.direction = 1; // Change to scroll right
         }
+
+        // Apply scrolling based on direction
         container.scrollLeft += scrollState.direction * scrollState.speed;
-      } else {
-        if (container.scrollLeft !== lastScrollPosition) {
-          if (
-            container.scrollLeft >=
-            container.scrollWidth - container.clientWidth
-          ) {
-            container.scrollLeft =
-              container.scrollWidth - container.clientWidth;
-          } else if (container.scrollLeft <= 0) {
-            container.scrollLeft = 0;
-          }
-        }
+        
       }
-      lastScrollPosition = container.scrollLeft;
+
+      // Request next animation frame
       animationId = requestAnimationFrame(scrollSecond);
     };
 
+    // Start the animation
     animationId = requestAnimationFrame(scrollSecond);
 
     const handleMouseEnterSecond = () => {
@@ -60,7 +56,7 @@ export default function Products() {
     };
 
     const handleMouseLeaveSecond = () => {
-      scrollState.speed = 0.5;
+      scrollState.speed = 1;
       scrollState.autoScroll = true;
     };
 
@@ -71,6 +67,7 @@ export default function Products() {
       }
     };
 
+    // Event listeners
     container.addEventListener("mouseenter", handleMouseEnterSecond);
     container.addEventListener("mouseleave", handleMouseLeaveSecond);
     container.addEventListener("wheel", handleWheelSecond);
@@ -82,6 +79,7 @@ export default function Products() {
       container.removeEventListener("wheel", handleWheelSecond);
     };
   }, []);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const container = firstDivRef.current;

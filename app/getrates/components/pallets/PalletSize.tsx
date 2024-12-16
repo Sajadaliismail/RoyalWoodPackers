@@ -79,13 +79,19 @@ export const PalletInfo: React.FC<PalletInfoProps> = ({
           value={formData.capacity}
         />
       </div>
-      <div className=" py-8 px-3 mx-auto my-auto">
+      <div className="relative py-8 px-3 mx-auto my-auto">
         <Image
-          src={formData.type === "two-way" ? "/palletImg2.png" : "/fourway.png"}
+          src={formData.type === "two-way" ? "/2way.png" : "/4way.png"}
           width={300}
           height={400}
           alt="pallet"
         />
+        {!Number.isNaN(formData.length) &&
+        <p className={`absolute ${formData.type == 'two-way' ? " bottom-16 left-8 [rotate:38deg]":' bottom-7 left-12 [rotate:15deg]'}`}>{formData.length} mm</p>
+         }
+         {!Number.isNaN(formData.width) &&
+        <p className={`absolute ${formData.type == 'two-way' ? " bottom-16 right-10 [rotate:-30deg]":' bottom-8 right-14 [rotate:-13deg]'}`}>{formData.width} mm</p>
+         }
       </div>
     </div>
   );

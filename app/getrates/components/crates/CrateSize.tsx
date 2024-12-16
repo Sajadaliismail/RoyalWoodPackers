@@ -74,11 +74,11 @@ export const CrateSize: React.FC<CrateInfoProps> = ({
           value={formData.capacity}
         />
       </div>
-      <div className=" py-8 px-3 mx-auto my-auto">
+      <div className=" py-1 px-3 mx-auto my-auto">
         <Image
-          src="/palletImg2.png" 
+          src="/woodcrate.png" 
           width={300}
-          height={400}
+          height={300}
           alt="pallet"
         />
       </div>

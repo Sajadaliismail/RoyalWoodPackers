@@ -8,7 +8,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { validateContactForm } from "@/lib/utilities/validationHelper";
 import Image from "next/image";
+import { Saira } from "next/font/google";
 
+
+const saira = Saira({
+  weight: ["100", "400", "700", "900"],
+  subsets: ["latin"],
+});
 gsap.registerPlugin(useGSAP);
 
 export interface ContactFormData {
@@ -65,7 +71,7 @@ const ContactUs = () => {
         Contact Us
       </h2>
       <div
-        className="flex sm:flex-row flex-col-reverse rounded-lg h-[80vh] "
+        className="flex sm:flex-row flex-col-reverse rounded-lg min-h-[80vh] "
         style={{
           backgroundImage: "url(/intor.jpg)",
           backgroundRepeat: "no-repeat",
@@ -73,12 +79,13 @@ const ContactUs = () => {
           backgroundPosition: "0",
         }}
       >
-        <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center  text-black">
+          <div ref={headingRef} className="flex flex-col p-2  items-center rounded-xl bg-[#ffffff85]">
           <Image alt="ol" src={"/rwp.png"} width={350} height={350} />
-          <div ref={headingRef} className="flex flex-col p-2 ">
+
             <div
               id="heading"
-              className={`md:text-5xl text-4xl text-center md:text-start font-bold text-[#0b2433] mb-8`}
+              className={`${saira.className} md:text-5xl text-4xl text-center md:text-start font-bold  mb-8`}
             >
               ROYAL WOOD PACKERS
             </div>
@@ -91,7 +98,7 @@ const ContactUs = () => {
         >
           <div className="w-full">
             <div>
-              <p className="mt-2 bg-slate-900 rounded-lg p-1 text-center text-lg">
+              <p className="mt-2 bg-slate-900 rounded-lg p-1 py-3 text-center text-lg">
               We would love to hear from you. Please fill out this form.
               </p>
             </div>

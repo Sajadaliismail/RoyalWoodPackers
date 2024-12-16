@@ -75,9 +75,9 @@ export const BoxSize: React.FC<boxInfoProps> = ({
           value={formData.capacity}
         />
       </div>
-      <div className=" py-8 px-3 mx-auto my-auto">
+      <div className=" px-3 mx-auto my-auto ">
         <Image
-          src={formData.type === "plywood" ? "/palletImg2.png" : "/fourway.png"}
+          src={formData.type === "plywood" ? "/plyBox.png" : "/boxwood.png"}
           width={300}
           height={400}
           alt="pallet"
