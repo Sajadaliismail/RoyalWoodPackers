@@ -41,25 +41,25 @@ export default function About() {
   return (
     <section id={"about"} className="min-h-[100vh]">
       <div className="flex flex-col justify-center  py-3  px-5">
-        <h3 className="text-center text-6xl underline underline-offset-8">
+        <h1 className="text-center text-6xl underline underline-offset-8">
           About Us
-        </h3>
+        </h1>
         <div className="flex md:flex-row flex-col justify-center mt-2 mb-8">
           <Image
             ref={ImageRef}
             className=" md:min-w-[35vw]"
-            alt="mission"
+            alt="wooden pallet"
             width={500}
             height={500}
             src={"/aboutus.jpeg"}
           />
           <div className="flex flex-col items-start align-middle justify-center  ">
-            <h3 className="text-3xl mt-5 mb-2 uppercase">
+            <h2 className="text-3xl mt-5 mb-2 uppercase">
               A Tradition of Quality
-            </h3>
-            <h1 className={`uppercase text text-5xl font-bold mb-3`}>
+            </h2>
+            <h3 className={`uppercase text text-5xl font-bold mb-3`}>
               Reliable, Sustainable Pallets for Every Need
-            </h1>
+            </h3>
             <p
               ref={paragraphRef}
               className="md:text-xl  text-sm  mt-2 font-medium text-pretty "

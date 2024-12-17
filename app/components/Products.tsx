@@ -25,7 +25,6 @@ export default function Products() {
 
     const scrollSecond = () => {
       if (scrollState.autoScroll) {
-
         // Check if we hit the rightmost edge
         if (container.scrollLeft === 0) {
           scrollState.direction = -1; // Change to scroll left
@@ -33,14 +32,13 @@ export default function Products() {
         // Check if we hit the leftmost edge
         else if (
           -container.scrollLeft + container.clientWidth >=
-          container.scrollWidth 
+          container.scrollWidth
         ) {
           scrollState.direction = 1; // Change to scroll right
         }
 
         // Apply scrolling based on direction
         container.scrollLeft += scrollState.direction * scrollState.speed;
-        
       }
 
       // Request next animation frame
@@ -71,12 +69,16 @@ export default function Products() {
     container.addEventListener("mouseenter", handleMouseEnterSecond);
     container.addEventListener("mouseleave", handleMouseLeaveSecond);
     container.addEventListener("wheel", handleWheelSecond);
+    container.addEventListener("touchstart", handleMouseEnterSecond);
+    container.addEventListener("touchend", handleMouseLeaveSecond);
 
     return () => {
       cancelAnimationFrame(animationId);
       container.removeEventListener("mouseenter", handleMouseEnterSecond);
       container.removeEventListener("mouseleave", handleMouseLeaveSecond);
       container.removeEventListener("wheel", handleWheelSecond);
+      container.removeEventListener("touchstart", handleMouseEnterSecond);
+      container.removeEventListener("touchend", handleMouseLeaveSecond);
     };
   }, []);
 
@@ -143,6 +145,8 @@ export default function Products() {
     };
 
     container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("touchstart", handleMouseEnter);
+    container.addEventListener("touchend", handleMouseLeave);
     container.addEventListener("mouseleave", handleMouseLeave);
     container.addEventListener("wheel", handleWheel);
 
@@ -150,6 +154,8 @@ export default function Products() {
       cancelAnimationFrame(animationId);
       container.removeEventListener("mouseenter", handleMouseEnter);
       container.removeEventListener("mouseleave", handleMouseLeave);
+      container.removeEventListener("touchstart", handleMouseEnter);
+      container.removeEventListener("touchend", handleMouseLeave);
       container.removeEventListener("wheel", handleWheel);
     };
   }, []);
@@ -200,9 +206,9 @@ export default function Products() {
           description="Rubberwood pallets offer good strength and durability due to their dense grain, providing a stable and sturdy option for handling heavy loads while being resistant to warping and cracking under pressure."
         />
         <ProductCard
-          name="Hard Wood Pallets"
+          name="Country Wood Pallets"
           imageUrl="/HardWood.png"
-          description="Pallets made from jungle woods are strong, durable, resistant to wear and moisture, and offer a sustainable option for heavy-duty applications."
+          description="Pallets made from country woods are strong, durable, resistant to wear and moisture, and offer a sustainable option for heavy-duty applications."
         />
         <ProductCard
           name="Plywood Pallets"
@@ -211,7 +217,7 @@ export default function Products() {
         />
         <ProductCard
           name="Painted Wood Pallets"
-          imageUrl="/pallet.jpg"
+          imageUrl="/painted.png"
           description="Painted pallets offer enhanced protection against moisture, pests, and weathering while providing a more polished and visually appealing finish."
         />
         <ProductCard
@@ -221,7 +227,7 @@ export default function Products() {
         />
         <ProductCard
           name="Plastic Pallets"
-          imageUrl="/pallet.jpg"
+          imageUrl="/pp.png"
           description="Plastic pallets offer unmatched durability, are moisture-resistant, and ensure safe, reusable, and hassle-free transportation for all your goods."
         />
       </div>
@@ -232,33 +238,33 @@ export default function Products() {
       >
         <ProductCard
           name="Wooden Boxes"
-          imageUrl="/fourway.png"
-          description="Rubberwood pallets offer good strength and durability due to their dense grain, providing a stable and sturdy option for handling heavy loads while being resistant to warping and cracking under pressure."
+          imageUrl="/box.png"
+          description="We produce high-quality wooden and plywood boxes, crafted for strength and durability. Perfect for storage, shipping, and industrial use, our boxes ensure secure and reliable packaging solutions."
         />
         <ProductCard
           name="Wooden Crates"
-          imageUrl="/HardWood.png"
-          description="Pallets made from jungle woods are strong, durable, resistant to wear and moisture, and offer a sustainable option for heavy-duty applications."
+          imageUrl="/crate.png"
+          description="We manufacture high-quality wooden crates designed for durability and reliability. Ideal for storage, shipping, and industrial use, our crates provide strong and secure solutions for all your packaging needs."
         />
         <ProductCard
           name="Wooden Planks"
-          imageUrl="/palletImg4.png"
-          description="Plywood pallets are lightweight, durable, cost-effective, and resistant to warping, making them ideal for lighter loads and indoor storage."
+          imageUrl="/planks.webp"
+          description="We supplies high-quality wooden planks, perfect for manufacturing pallets, boxes, and similar products. Durable and reliable, our planks ensure superior strength and performance for industrial and packaging needs."
         />
         <ProductCard
           name="Plywood"
           imageUrl="/Plywood.png"
-          description="Painted pallets offer enhanced protection against moisture, pests, and weathering while providing a more polished and visually appealing finish."
+          description="We offers premium-quality plywood, crafted for strength and durability. Suitable for both commercial and hardwood applications, our plywood delivers exceptional performance for all your construction and furnishing needs."
         />
         <ProductCard
           name="Veneer Sheets"
           imageUrl="/veneer.jpg"
-          description="Our pinewood pallets offer lightweight construction, no risk of staining due to the absence of juices or glues, and excel in safe, efficient, and cost-effective transportation."
+          description="Our high-quality veneer sheets, perfect for both commercial and hardwood plywood. Our precision-crafted veneers ensure durability and superior performance for all your plywood needs."
         />
         <ProductCard
           name="Rented Pallets"
           imageUrl="/rented.jpg"
-          description="Our pinewood pallets offer lightweight construction, no risk of staining due to the absence of juices or glues, and excel in safe, efficient, and cost-effective transportation."
+          description="Our rental helps reduce your costs and environmental impact. We handle the management, tracking, and repair of pallets, so you can focus on what matters most: your business."
         />
       </div>
     </section>

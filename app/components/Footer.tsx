@@ -75,7 +75,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/custom-design"
+                  href="/getrates"
                   className="hover:text-white transition-colors"
                 >
                   Custom Pallet Design
@@ -130,7 +130,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2" />
-                <a
+                <a title="Mail to us"
                   href="mailto:royalwoodpacker@gmail.com"
                   className="hover:text-white transition-colors"
                 >

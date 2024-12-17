@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "public": "next dev -H 192.168.0.138 -p 3000"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

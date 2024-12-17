@@ -87,13 +87,13 @@ export default function HeroSection() {
       >
         <div ref={headingRef} className="flex flex-col p-2 ">
           <Logo />
-          <div
+          <h1
             id="heading"
             className={`${saira.className} md:text-5xl text-4xl text-center md:text-start font-bold text-white mb-8`}
           >
             ROYAL WOOD PACKERS
-          </div>
-          <div
+          </h1>
+          <h2
             ref={text}
             id="caption"
             className={` ${saira.className} flex md:text-7xl text-5xl text-center md:text-start font-bold md:w-[50vw] `}
@@ -102,7 +102,7 @@ export default function HeroSection() {
             }}
           >
             Quality Wood Pallet Makers.
-          </div>
+          </h2>
 
           <div className="flex flex-row justify-evenly mt-16">
             <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
@@ -121,7 +121,7 @@ export default function HeroSection() {
                 src={"/whatsapp.svg"}
                 width={50}
                 height={50}
-                alt="whatsapp"
+                alt="Contact whatsapp"
               />
             </Link>
           </div>
