@@ -7,7 +7,7 @@
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#eeeeea",
-    "theme_color": "#8B4513",
+    "theme_color": "#000000",
     "categories": ["business", "packaging", "manufacturing"],
     "icons": [
       {
