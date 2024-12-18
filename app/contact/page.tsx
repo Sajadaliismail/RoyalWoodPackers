@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { validateContactForm } from "@/lib/utilities/validationHelper";
 import Image from "next/image";
 import { Saira } from "next/font/google";
+import SuccessNotification from "../components/notification";
 
 
 const saira = Saira({
@@ -27,6 +28,7 @@ export interface ContactFormData {
 const ContactUs = () => {
   const formRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLDivElement>(null);
+  const [showNotification, setShowNotification] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,13 +58,26 @@ const ContactUs = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit =async (e: React.FormEvent) => {
     e.preventDefault();
     const validate = validateContactForm(formData);
     setErrorData(validate.error);
     if (validate.isError) return;
 
-    console.log("Form submitted", formData);
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxsQsR_6aX9ffS4-UAcK9qLdwcamDZTtu_g56M9b-0RPOVlp1sKd5DhBgxut3ujn5GKbw/exec',{
+      method:'POST',
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:`Name=${formData.name}&Email=${formData.email}&Phone=${formData.phone}&Option=${formData.enquiryType}&Time=${new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Dubai",dateStyle:"short",timeStyle:"medium"}).format(new Date)}&Message=${formData.message}`
+    })
+     await response.text()
+    setShowNotification(true)
+    setFormData({
+      name: "",
+      email: "",
+      phone: NaN,
+      enquiryType: "",
+      message: "",
+    })
   };
 
   return (
@@ -165,6 +180,12 @@ const ContactUs = () => {
             </form>
           </div>
         </div>
+        {showNotification && (
+        <SuccessNotification
+          message="Your message was sent successfully!"
+          onClose={() => setShowNotification(false)}
+        />
+      )}
       </div>
     </div>
   );

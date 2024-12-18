@@ -63,21 +63,21 @@ export const Navbar = () => {
           <Image src={"/rwp.svg"} width={80} height={100} alt="logo" />
         </span>
         <span>
-          <Link className="" href={"/"}>
+          <Link title="Home Page" className="" href={"/"}>
             Home
           </Link>
         </span>
         <span>
-          <Link href={"/about"}>About</Link>
+          <Link title="About Us" href={"/about"}>About</Link>
         </span>
         <span>
-          <Link href={"#"}>Products</Link>
+          <Link title="Product Details" href={"#"}>Products</Link>
         </span>
         <span>
-          <Link href={"#"}>Gallery</Link>
+          <Link title="Gallery" href={"#"}>Gallery</Link>
         </span>
         <span>
-          <Link href={"/contact"}>Contact</Link>
+          <Link title="Contact Us" href={"/contact"}>Contact</Link>
         </span>
       </div>
 
@@ -93,21 +93,21 @@ export const Navbar = () => {
           <Image src={"/rwp.svg"} width={80} height={100} alt="logo" />
         </span>
         <span>
-          <Link className="" href={"/"}>
+          <Link title="Home Page" className="" href={"/"}>
             Home
           </Link>
         </span>
         <span>
-          <Link href={"/about"}>About</Link>
+          <Link title="About Us" href={"/about"}>About</Link>
         </span>
         <span>
-          <Link href={"#"}>Products</Link>
+          <Link title="Product Details" href={"#"}>Products</Link>
         </span>
         <span>
-          <Link href={"#"}>Gallery</Link>
+          <Link title="Gallery" href={"#"}>Gallery</Link>
         </span>
         <span>
-          <Link href={"/contact"}>Contact</Link>
+          <Link title="Contact Us" href={"/contact"}>Contact</Link>
         </span>
       </div>
     </nav>

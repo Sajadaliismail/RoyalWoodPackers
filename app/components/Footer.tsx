@@ -14,7 +14,6 @@ const LocationMap = dynamic(() => import("./Location"), { ssr: false });
 export default function Footer() {
   return (
     <footer>
-      
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-3">
           <div>
@@ -96,6 +95,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
+                  title="About us"
                   href="/about"
                   className="hover:text-white transition-colors"
                 >
@@ -105,6 +105,7 @@ export default function Footer() {
 
               <li>
                 <Link
+                  title="Contact Us"
                   href="/contact"
                   className="hover:text-white transition-colors"
                 >
@@ -118,19 +119,20 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <PhoneOutgoing className="h-5 w-5 mr-2" />
-                <Link href={"tel:+919947405821"}>
+                <Link title="Make a Call" href={"tel:+919947405821"}>
                   <span>+91 9947405821</span>
                 </Link>
               </li>
               <li className="flex items-center">
                 <PhoneCall className="h-5 w-5 mr-2" />
-                <Link href={"tel:+919495785815"}>
+                <Link title="Make a Call" href={"tel:+919495785815"}>
                   <span>+91 9495785815</span>
                 </Link>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2" />
-                <a title="Mail to us"
+                <a
+                  title="Mail to us"
                   href="mailto:royalwoodpacker@gmail.com"
                   className="hover:text-white transition-colors"
                 >
@@ -140,6 +142,7 @@ export default function Footer() {
               <li className="flex items-center">
                 <MapPin className="h-5 w-5 mr-2" />
                 <Link
+                  title="See in Google Map"
                   href="https://maps.app.goo.gl/SGRrsqCUabbuSXo36"
                   target="_blank"
                 >
@@ -159,6 +162,7 @@ export default function Footer() {
 
           <div className="flex space-x-4 mt-4 sm:mt-0">
             <Link
+              title="Facebook"
               href={"https://www.facebook.com/royalwoodpackers"}
               target="_blank"
               aria-label="Facebook"
@@ -166,6 +170,7 @@ export default function Footer() {
               <Facebook className="h-5 w-5" />
             </Link>
             <Link
+              title="Twitter"
               href={"https://www.instagram.com/royalwoodpackers"}
               target="_blank"
               aria-label="Twitter"
@@ -173,6 +178,7 @@ export default function Footer() {
               <Instagram className="h-5 w-5" />
             </Link>
             <Link
+              title="LinkedIn"
               href={"https://www.linkedin.com/company/royalwoodpackers"}
               target="_blank"
               aria-label="LinkedIn"

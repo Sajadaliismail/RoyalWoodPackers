@@ -105,13 +105,14 @@ export default function HeroSection() {
           </h2>
 
           <div className="flex flex-row justify-evenly mt-16">
-            <button className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
+            <button title="View all products" className="bg-blue-700 text-white text-nowrap h-14 md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
               Products
             </button>
-            <button onClick={handleNavigation} className=" md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 bg-blue-700 text-white  hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
+            <button title="Get Rates of custom measurements" onClick={handleNavigation} className=" md:p-3 px-6 my-10 rounded-xl md:text-lg md:w-48 bg-blue-700 text-white  hover:animate-scale-bounce-1_02 duration-500 shadow-black shadow-md">
             Get Rates
             </button>
             <Link
+            title="Message us on WhatsApp"
               className="items-center flex align-middle hover:animate-scale-bounce-1_1"
               target="_blank"
               href={"https://wa.me/9495785815"}
